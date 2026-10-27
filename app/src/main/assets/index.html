@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="sr-Latn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f2d3e3">
+<title>Noćni sat</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAc10lEQVR4nO2deZQV1Z2Av+puQPZNFtkFQRFQXAbihuJCBEXAJWpciUsmozHjiU7O0cSZiTnJySQnTiaJSoxmJpGoYxQXZBMUdRQVNwxR2WRt9qWbzaahu+aP6tddr979Vd37lu77XtXvHE/CfVX393XVd6vq1nKvg2Xh/vgUN70AwEGvLFCeVpOjKGso1yoDXEdRVqx8Eks++CQWB+fhBYofWi5aFMZ9cHTTpispuWznk1gKK7/E5zwyv8U8bPbEadI3FpaSXLbzSSwtI3+wzHm0eRtDsyVzfzLaLX25bOeTWOyQ35/TeXRes7hZ8CTuT0524yGX7XwSi33y+8ucGYVtCAWr3BO/IUXJy2U7n8Rit/z+MmfG3IK4mvdKm8RvqL7k5bKdT2IpHvn9eZ3f57chlOWzskR+2/gkluKUHxzc2yepSLKOvLSmdPEbqi15uWznk1iKV/5gmfPYnJz9zfkMkMhvI5/EUjryA7i3XZLz2SCnBpDIbyOfxFJa8qf43FtzawRZN4BEfhv5JJbSlL9xlRwaQVYNIJHfRj6JpbTlb1z1lkuzagTGDSCR30Y+iSUe8qdYsmkERg0gkd9GPoklXvI3/tOwEWg3gER+G/kklnjKnypzvzVZuxFoNYBEfhv5JJZ4y9/4fzUbQWQDSOS3kU9iSeRPK5oe3QgMO8FxkMt2PoklkT+STxGhDSB5t8c2PonFArks5XOnXxZ6FhAbQCK/bXwSSyJ/FJ97s9wINC6B4iCX7XwSS8vLVTx86lA2gORjFpv4JBab5LKfz715irIphJwB4iCX7XwSi11yFQ2fIjIaQPINry18EoulchUBn3tT5llAcQaIg1y280ks9spVHHyZkdYAkqFLbOCTWGyXy3Y+r9y9aWpaSfoZoOTlsp1PYrFdLtv5ZJbGBpCM2NbSfBKL7XLZzpfJ4t7YdBaQ7wKVlFy280kststlO5/E0rSsugGUlFy280kststlO5/Ekl5HGZCM0txifBKL7XLZziexNJW5N0xzIaMTXEpy2c4nsdgul+18Eouar6kBlJRctvNJLLbLZTufxCLxpRpAScllO5/EYrtctvNJLCF8iJ1gKbntctnOJ7HYLpftfBJLNJ+TzMnVXHwSi+1y2c4nsejxKZ4EF6NctvNJLLbLZTufxKLP5+sES8ltl8t2PonFdrls55NYzPjKwpPbLpftfBKL7XLZziexmPOVFa9ctvNJLLbLZTufxJIdX1lxymU7n8Riu1y280ks2fNpdoJNgaTkify58UksceCTWHLj0+gEmwJJyRP5c+OTWOLAJ7HkzhfRCTYFkpIn8ufGJ7HEgU9iyQ9fSCfYFEhKnsifG5/EEgc+iSV/fEIn2BRISp7InxufxBIHPoklv3zCN8G2yJXIH08+iSX/fIFOsCmQlDyRPzc+iSUOfBJLYfh8nWBTICl5In9ufBJLHPgklsLxldknVyJ/PPkklsLylZkDSckT+XPjk1jiwCexFJ6vzB65EvnjySexNA+fohNsmjyRPzc+iSUOfBJL8/EFOsGmyRP5c+OTWOLAJ7E0L19ZIn82LLbLZTufxNL8fL4HYYn8eiy2y2U7n8TSMnzpd4ES+YtcLtv5JJaW4ytL5NdlsV0u2/kklpblU3SCpeSJ/LnxSSxx4JNYWp6vLJE/isV2uWznk1js4AuMDJfIn38+iSUOfBKLPXzpd4ES+YtILtv5JBa7+JruAiXyF5FctvNJLPbxlSXyF4JPYokDn8RiJ59mJ9g0eSJ/PPkkFnv5NDrBpskT+ePJJ7HYzRfRCTZNnsgfTz6JxX6+CnMgKbkDFa1gyGkw+FQ4Zih06wvtO0PrtlBfD7UHoXon7NwIGz6D1R9A5apAgkT+vPFVtIITTobjR0H/wdCzN3ToBG2O8vZHTQ1U7YJtm2HNCvh8Gaz/0pBPYtHkGzEKho+AAcdCz17QsRO0aePxHaqB3bth6xZYvQqWfwrr1uWVz3F/ONbNWa6OR8O518EpE6FdJ0VlIbFtLbz9HLw/2/ujsxXuohvg4lvMcucjDuyFH1yZWd6S8nfuBhdfAWecD+07hsAronIDLJoNby6E+rrCyN+lK1wyFc4+Dzp0MOPbtBHmz4PFr0Fd7nyOe//YTL10dx5lcM61cOGt0KqN/h+hip2b4Jmfwbq/pYPqNs4Lb4CJljSAlpIfByZcDlOug1atI8AjYttmePy/YNXnhiwRfJMug8uvgdY58m3dAo8+DCtW5MSX2QB0d17rdnDdz2DoP6gB6+vg3Vmw9BVP7tZtoe8wOO96GDxavY5bD7MfgTefwfiy56IbYeK31PUWMoINoKXkb9MWvnMfnHiKmrO+Dl6fA/+3yJO7zVEwYDBMuhKOH6lex3Xhmf+G+S9qskTwfe9eGHmyOlddHSyaD4tfh21bvcugQcfC5Gkw/ESZb+aT8MrsrPkq0is0kP+230Hf4wWwepj5I1j+ZlNZbQ2seA9WLIWr74dTJ2Su55TB5DvgqA4w/wlFvbpnphaKlpT/np/BwOMELhce/Tl8+G5T2aEaWP4RLP8Ybr0bzjgvcz3HgWumQ9t2MOupCJYIvvv+HY4dIvP95lew9P2mspoaWPYJLFsG3/kunH2Omu/6G6BtW3j22az4zOcJpgyu+6ksP8CHc9Pl9yd36+H5X8L+PfL6F90EYy4JsCTyi5cV/3ifLD/AO4vS5ffncIE/PQJ7q+X1p1wN4y4MYYngu+teWX6Atxanyx/ke+KxcL4rroTx52fFZz5P8LnXw9AxMgzA4r+EJ6/9Cpa8EF7HtO9BzwEY8bVUtGSHd+KVMEK47EnF3OfD+Q7VeJdHYXH97XBMP3O+S6fBKOGyJxUvvxjOV1MDry4Ir2P6dOjT15ivzGjnde8HF0Z0NKt3wI710clXKFq8P1q1gav+xX75VdFc8vc4BiZfF86yZxds2RTNt/yT8Hpat4bpd5jx9ewNl18dwbcbNldG8y1bFs13++1mfKgmyhZ3ngMTvg3lrcJBNqfu60ck37zGu/YLi2NHwcizNPlaKDZ9mf7v5pIfYNqNUFERXCA9NmjybVgbvT+GDYdTU2d/Db6rvhnNt26tJt/6aL4TToDTT9fnI6MTLCTHga7HwKjx4QAAuzbpJT9cA3t3Quce4fWNvxaWvx3Bp4g//jsse1NYTm/jNK3rwLjL4Bt3Zv42d2YgRzPJf3QvOP1sBWwgtm/R46uthard0LV7eH2TpsFHS6P5evSEsWdG823bqsd3qBb27IFu3cLrm3IZfPBhNF9D6M8TPHaqd5cmKqp3aCenant0fYNGQp8h+nKpIlf5yyvgIsWpfPVyWPWpr75mkh/g3IneXZCo2LNTn2/Xzuj6hp4AAwZF850/QY9v16788g0bBgMHau9f/XmCT7ogOjnAvt2ayR3Yu0uvztHnC3xklgcjV/kBvjYBuirOVKmjf3PLD3C64ragKqqr9Pmqd+vVOSZwWariGxtcJg98e6r06jzjjGg+AFd3nuDex3mXQDpxcK9G8oayr/bp1TkycKqPFElVlqX8ZeUw4ZrM39d+Dl981DLy9xvkXQLpxP59+nwHDujVedrYcL7+A71LIC2+/QZ8+/XqHHO67x/h+1dvnuDBp+glBvjKDxkiP8BBzQbQayB06OLjCzBGdoKzlB9g7IXQvXfmMnNntoz8AMNOUhQKcfCgPp+uYH36eS+tSXzDhSfLqjhgwqfZQPv2hU4hfL79qzdP8ACDP+hQ6g+KkB+85wG6MfBEfbmCOdOWE1ga6/PVU1YGE67NXGb9Sli+NDNnc8jvOjDkBMUPQtT4tnEUy6Ea/XqPO17mOy7kIWkufDWH9OsdOjR6/+K/CxR2NOs9WD9xbQ1a8gPUGvxBvY+F5e8gyrXgSe+/fFz2pOL086FHn8zl5swka/k7dIFJV8PoM6FTV++6+5Ml8MrTsH9v0/JhfH0HKn4UIrWNdRriIYP90XcAfPSBmq9/f/16DtUWhq9/f/jgIzWfLyqaEgk71Cn3HoDpxpFafeFMGkDPART8yJq2mANfVxz9N66Gv70XWDeMxVfWqz/c/VPo4rvV2L0nXDAFTjkTHrrfe1EtjM9xoKdmfwy8bay7rUz2R+qpq4qvlwlfrT6fUQMNHLiEB6rR8wR36AoVBq+uHj4cKAgRru6Ifr1dfZ2qQssPcMp5nrDBmPuX9H/ryl9eAf/0QLr8/ujWA+54wFsujK9TV7NXnY+ktrHGtjpSp19vd99dMT9f5y7QKuJhqT8OG/DVGfAd7dvOIW8TRM8T3KGrflLwXrttjAjh6oKNJSRSHM0hP2VwseLov3kdLFuiyKtxZhp7PvQKHDWD0bsffG18OF+nzuF1BKOuTuDzMabKTA5IKY6c+Y7o8x0x4Oss8DXW13gXKPiDLzFA22w2eEMdUcLVG7To9p2aR37XgdFnQ59Bmb/N/QuNj+NNO7wnnqoAUMSI08L52ht+cVdXn8kCKLeVf9mo6NBBzdfB8Au0eh9APvk6CnyBK57oeYKNvyxy0RYu8valLxo5Ciy/48DEb2b+tnUDfPRWIIdBn6RjFwWEIjp1CefLan+gsa0cIt+18YeKIxu+jANKGJ9BvarLMMXlfvQ8wRUG13Op9bSFM2jR5a0ouPwAo74GfRV3veY+5e2sbG91HtB85nFgXzhfzvtDkAsMG0CAo5Ev4uW3YKRt0wi+egNfMvh89fjK9OcJ1g1t4YRlpXCaQX5QH/23V8IHi7OXH7wRF3TiM8Vyyn6KZmjLj1kDSMvRTHw55VBdfejME3zEoKMKZLwAFXYdVqbxcl0qUhyFlH/EGBgwLHOZuU/5rlWzkN8FliyEXREv/+3eAW8vDGc23h8KFhUfGO6Phg5pBp9BRxV8vhSKz1dPKtI7wRE777DBvVf/eqDRCTE4cmQ8X8iz/KA++u/YAu+/lp4zLa/mman2EPzux7CvSgEH7K2C3zyYfi9exVxbq15fDCeTRcXnL9OJw7X54XNM+Ayi9nCk/JDxJFiRXPd9nVSUl8NhtHrgRi36gP8luwLIP/w0OHZ45nLznm649sxB/lRsWgc/vgsuuQZOHuN1eKurYNn7MPuZ9Lcxpe2n+75OKsorAM2Dh8n+2KfgcIH9mu/rNOYsV7BIfOX69e6TXgJML/M9CRaSh328roqycj35IfrrMn/sS3EUQH5QH/13b4f3FpEX+VN8Vbth5sPefyZ8qe0X9nG4KsrL9flMOthBjmz5KioM+Aw62NWBt5KjO8FC8v27zR5Ylatuj6mTG7XoPdvVfDTUnYv8Q0+GIYoX/uY9nf70MVf5s+Xzb7+9VWbX2WlPliP4yg32h//jFD9fdbUhnz9nHvl2+r41ES+FdOYJrndhZ+Cj5bAIjhAXkpzWR+nXu32Tmi8fck1SfFi+ZwcseTV9uVS+jDJfeSHlB+9yzP+ZY1QEn5+E8bU2GN1vS6XMt3Wrag11tDbga2PAV7lFzZeWQ3ee4K1r9RP7G0BEcqMGsGVtYeQaMhKGnZz52/xnA3cSGvL51yVQXmj5U2Wb1isqFaJNG32+NgYPsTZuDOHbqF9PawM+k+EUN26K9g/deYLX/y34oxxHtfPVF56c1m316137mcyXlsNQLtXRv3oXvD3Pt1zDsmnrBsqbS36A1SsUFQuRtj8i+NoY7I+VKxH5Vq7Ur6dt2/R1G0PB19bggPnFKiL9Q3ee4C+X6Sc+qoOe/ABtNUcG3r4xcPswT3INOgGGK97RWfBX7367jfLjwMq/KyoXol17fb527fXq3LIZ9qo6mQ11fx48WDUzX+UWqA7cvRT2pd4USZWroWqbXvJ2ndCS3wXaaTaAT98J54Ps5FId/ffugbfm2Cs/eGP479qhSKKI9sFtHMLXXlOwD5aG861bBzs1RnAAxfDoeeB7P/ghTIDPV6Y/T/CyxXrJOwbGbQkTqVPEGDSp+PiNED6yk2vAUBipGNn61ed8D3MKIH/HznDt7fAfT8CM5+EXj8O1t3nlumdOF1j6DlrRuYs+X5euenW+q/FK+LuKsUhV0aWzPl/XLnp1vuP7YCniQKY/T/CSF9F6V6Tz0ZrJnehBsQDWfwEbVwp8ZH9knaS477+/Gt6YHcLsK89G/t794IFfwwWTvQ9gKiq8/71wMvzrf8IxgQ9wwrbf6/P09kfjQFcafN00DkhrVsPaL6P5Fr6qx9c40JUGX/eIQbEAVq2BNWuj+RrK9ecJ3lkJy9+KBjg6OECpIH9Fq/SvvKRY9L8CH9nL32+w99ZnMBY+3/AqQgHkr2gF3/2RPPJa1+5w1/1ND6Oidt62rfBR4NNMVfTqrcfXqhV0P1qxUCBmv6THt3UbLA1cKqmitwHf0RoN9IU5enxpd4F0d+icx6I/Yuk7NFp+gGMGEzly2PrP4ZO38n9NPfGbmbkP7IPFLwvMvjqyveY/Yzz0Unxg749efeCs8/X7H88+Gf2Z4MDBenz9BkTvj9Wr4L139fmeejqab9AgPb4B/aP5Vq6BJe8b9d/M5gnevhFe/XM4RJce0LO/kNxXNiziC6kjh+Gph/Ivf+8BMFoxatmiWd4w3GnrpiIPHd4Rul+EjU7PGcaypRJe8k8MoYhu3eEYjQ/ER0aMNXT4MDw2w+zmwObN8Pys8Hq7d4M+gY/oVXyjIobmOXwEHnnc+OaF+TzBC/8Mqz8OhxnvG0lNBVTRBs6ZEl7HrEehcm04S2hZIGeqbNJ1mUeSgwfgtZcUzL46cr3b00HzU8ZOXTA6C738HHy+PLzOS6aG87VqAxddHF7Hk3+CDRvSOXT4Zr0Af4+4bTtlcgRfa5h4UXgdf5wJ61IP4PT5zOcJrq+DP/4INn+pWLghxlwMo85Wy48DV9zpnSmkWPgMvPlSZnmu8vfqB6eNy1z+tReg5qBv3QB3Pm517qtWrKAI/8tkkSyOd4nx65/DxvVyneeMh9PGqPkogxu/Fd4BfvlFWDA/ncOE75e/gvUbEOO8cd5whko+B265KbwDPGs2zF3YtLw2HzjuPee4Zju0obK2HWD6g3DcaDVUfR289QK8Px92VHqvPfQZAhdcA8cLlwOuC7OfgAVPa7IYyA9w870wNjDIb81BuO9mOLi/cPIDjJsANymGVw/G/zwMixfoyeUva9cevvcDeVjCujpYOA/eeB22bfFekRhwLFw6Rb78cV145il48YX0nFEsqrL27eCe78MIYcK7ujqY9yq8/gZs2dYwSd5AmHopnBQyid/MZ+G5l7Pg88od955x2c8TXFbmjd//9RvNxg5Sxa4tMPOXTcONR7IYyt+jD/zbHzLfeZ/7NLz4p8LKD97dnQd/Gz6o1fat8MO7Ah+VaMiVirJyuGQaTL3KbGweJcs2mPEIfJZ6qpuD/H6+KZPhystz59u2HX77GCz/Igu+hnIXHPf74zJ3qalcnXvABdfC6Rfpv96Qim0b4I1ZsGSe+jXafD1BveFuODMwM+Whr+C+6b4hCX115FP+VH19BsC9D0Lnrpm/V+2BXzwAlf4XyQzk8vN17ebNzXX2ufqvD6SishLmz4XXF/kGysqD/H6+bt1g6mQYd453ZjCJTZthzgJ4dXGWfOksmQ0g28fz4J0Fhp7qXRb1Ow669/HGsWl9FLj1nnDVu2DHJlj3Baz4EDauIi9y6fAZ3iFIK88XX6cuMPkbcMpYryFU74GP3/Pu5lRXRbAY8lW0hhEnwfARMHCQ90ygQ0fv8qK+3rvrVbUbtmz1bnEu/xTWrg3kyLP8Qb6TRsKI4d7lTu9e3ng+fr7dVR7fyjWwbDl8uS4HvkyW9AZQ7HKVBJ/EEgc+iSUffGoW83mCi1ou2/kkljjwSSyFkx+ymSdYTG67XLbzSSxx4JNYCis/ruk8wWJy2+WynU9iiQOfxFJ4+cFonmApue1y2c4nscSBT2JpHvlBd4okMbntctnOJ7HEgU9iaT75QWueYCm57XLZziexxIFPYmle+SFynmApue1y2c4nscSBT2JpfvlxQ+cJlpLbLpftfBJLHPgklpaRH8R5gqXktstlO5/EEgc+iaXl5AedKZKKRi7b+SSWOPBJLC0rP+hMkZQ3oMzkclkgZ9HzSSxx4JNYWl5+0JkiyXq5bOeTWOLAJ7HYIT9u5BRJtstlO5/EEgc+icUe+SF0iiTb5bKdT2KJA5/EYpf8IE6RZLtctvNJLHHgk1jskx+0O8GmQFLyRP7S5pNY7JQftDrBpkBS8kT+0uaTWOyVHxcqikcui/n+eXf6cg/5hxhR85110vNp/3572RWRfEPuSP9+ds1vv9LjC2WJr/wRnWBTICl5zOQHuHtX+rIR8gOcdfJzRvIDDLnTN6FFIn9WfNHzBCfym8mfilQj0JC/8bfRf1XyqeRPxZA72yby58Cn6ASbAknJS1x+nVDx6YaKLzQS+bPhU0yRZItcRS5/Rgh8qkjkbza+6HmCjZPHRX4TSQspv3/dQE6tsobyGMoPOvMEJ/LLLA+FDCj7q9RkE+l8jXd7FPH2x1cp+TLu9vhizW9qZL5E/kg+vXmCtZLHTP5UmaoRCPKn4u1PrswsE+RP5VM1gkT+3Pkc964LXH0gKXlM5Y8Nn8RS3PKD7jzBockT+UubT2IpfvlxTadIygkoM7lc5itvcT6JJQ58EktpyA/ZTJGUFZA6eSK/zXwSS+nID9lMkWQMJCVP5LeXT2IpLfkhdJ5gKXkif2nzSSylJz+I8wRLyRP5S5tPYilN+XGVnWApeSJ/afNJLKUrPyhHh07kjx+fxFLa8kPGwFiJ/PHjk1hKX36InCIpkb+0+SSWeMgPoVMkJfKXNp/EEh/5ccUpkhL5S5tPYomX/KDdCTZNnshvL5/EEj/5QasTbJo8kd9ePoklnvJD7OYJlljiwCexxFd+iNU8wRJLHPgklnjLjxubeYIlljjwSSyJ/ABlzsML0jMl8pcQn8SSyA/gLJzhlPg8wRJLHPgklkR+f5TwPMESSxz4JJZE/mCU6DzBEksc+CSWRH5VZA6OG5k8kd9ePoklkV/iKwNwHpnflCmRv0j5JJZEfhWfs+hRB0pqnmCJJQ58EksifxRficwTLLHEgU9iaXm5ioGvsQE4j853EvmLjU9isUMuW/lSlz+gehs070AUqVy280ksifxafJlZG5b99sVu/oCE5NbLZTufxGKJXBbz+Y/+IJ0BEvkt5pNYWl6uouALREYDcGbMa1ordnLZziexWCKX5XzBoz+IZ4BcgNTJ7ZfLdj6JxQ65ioMvM8RzhHv7xPS+QEnLZTufxGKTXHbzOa9lHv0h7AxgDCQlt10u2/kkFnvkKjo+X4gNwPn9XEcfSEpuu1y280ksFstlIZ/z2iNiC5CbRqqO2yb50pWSXLbzSSx2yWU7X5j8EHkJlG1y2+WynU9isUuuouITIrIBOI/NcUpLLtv5JBaL5bKUL+roH6ALD/fWS9IRilIu2/kkFvvksp1PR34wuARy/vBKU4VFKZftfBKLfXLZzqcrf4BSL9xbLs1Esl4u2/kkFvvksp3PRH4w6gQ3YD0+Oz2B9XLZziex2CeX7Xym8kMWDQB8jcB6uWznk1jsk8t2vmzkhywbACjOBAGg9LJAeSJ/UcllO1+28kMODQDAeeLlpsRWyZXIHxe+XOT3EeYW7vTJrj1yJfLHhS9X+ZtqylO40y/z/oxE/qKXy2a+fIjvy57fcG9uaASJ/JosdsllO18+5W8gKEy4N08JnA186RL5rZTLZj7pff5co2ANIBXuTVPSzwiJ/NbJZTOf6jPGfEbBG0Aq3Jumuon8+eSTWEqDr9Di+2iaN9wbp7qJ/LnySSzFz9dc4jfma85kwXBvmObbHIn8ubEUL19zS++PFm0AqnCvv7xpMyXyl5z8zsIZVjn3/4PtxlTLrx/7AAAAAElFTkSuQmCC">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Noćni sat">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap">
+<style>
+/* Layout: landscape first — clock on the left, weather on the right, radio + menu in one bar at the bottom, everything centered in a max-width frame */
+:root{
+  /* 60-30-10: pale linen ground, pastel ochre to terracotta tiles, soft brown ink */
+  --bg:#faf2ea; --panel:#fffaf5; --line:#ecd9c6; --fg:#3d3b3e; --dim:#836a59;
+  --accent:#b0582a; --accent-soft:rgba(176,88,42,.12); --on-accent:#ffffff;
+  --g1:#f6e5d4; --g2:#f1d4b6; --g3:#ebc29b; --g4:#e3ad80; --g5:#d99766;
+  --g-night:linear-gradient(135deg,#5a463a,#3d3b3e);
+  --tile-fg:#3d3b3e;
+  --shadow:0 1px 2px rgba(74,58,48,.05),0 8px 24px rgba(176,88,42,.14);
+  --f-clock:"Montserrat", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --f-ui:"Montserrat", "Helvetica Neue", Arial, system-ui, sans-serif;
+  color-scheme:light;
+}
+/* night: the same colors, dark and dim */
+
+/* tile gradients resolve on body so theme and night shades flow into them */
+body{
+  --g-alarm:linear-gradient(135deg,var(--g2),var(--g3));
+  --g-violet:linear-gradient(135deg,var(--g3),var(--g4));
+  --g-sun:linear-gradient(135deg,var(--g4),var(--g5));
+  --g-sky:linear-gradient(135deg,var(--g2),var(--g4));
+  --g-mint:linear-gradient(135deg,var(--g4),var(--g5));
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--fg);font:500 14px/1.45 var(--f-ui);overflow:hidden;-webkit-tap-highlight-color:transparent;user-select:none;
+  padding:env(safe-area-inset-top,0px) max(16px,env(safe-area-inset-right,0px)) env(safe-area-inset-bottom,0px) max(16px,env(safe-area-inset-left,0px));
+  transition:background .5s,color .5s}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.app{height:100%;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto 1fr auto;gap:clamp(6px,2vh,14px);padding-block:clamp(8px,2.5vh,16px)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px;color:var(--dim);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:800}
+.alarmchip{display:flex;gap:8px;align-items:center;background:var(--g-alarm);color:var(--fg);font-weight:700;letter-spacing:.04em;padding:6px 12px;border-radius:999px;box-shadow:var(--shadow);text-transform:none;font-size:14px;font-weight:900}
+
+.alarmchip.off{background:var(--panel);color:var(--dim);font-weight:500}
+
+.main{display:grid;grid-template-columns:1fr;place-content:center;justify-items:center;text-align:center;gap:clamp(12px,3vh,24px);min-height:0}
+.clockwrap{display:grid;justify-items:center}
+.clock{font-family:var(--f-clock);font-weight:300;line-height:.9;font-variant-numeric:lining-nums tabular-nums;letter-spacing:-.04em;color:var(--fg);
+  font-size:clamp(64px,min(24vw,34vh),220px);display:flex;align-items:flex-start}
+.clock #hh{font-weight:800}
+.clock .colon{font-weight:400;color:var(--accent);animation:blink 2s steps(1) infinite}
+.clock .sec{font-size:.18em;font-weight:700;margin-left:.3em;margin-top:.35em;letter-spacing:0;color:var(--accent)}
+@keyframes blink{50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.clock .colon{animation:none}}
+.date{font-size:clamp(13px,min(3.2vw,4.2vh),18px);color:var(--fg);margin-top:8px;font-weight:800;text-transform:uppercase;letter-spacing:.14em}
+
+/* weather tile */
+.wx{display:grid;gap:10px;justify-items:center;width:100%;max-width:420px;background:var(--g-sky);color:var(--tile-fg);border-radius:24px;padding:clamp(10px,2.5vh,18px) 16px;box-shadow:var(--shadow)}
+.wxnow{display:flex;align-items:center;gap:12px}
+.wxnow .t{font-family:var(--f-clock);font-size:clamp(34px,min(9vw,12vh),58px);font-weight:300;font-variant-numeric:tabular-nums}
+.wxnow .d{opacity:.92;font-size:13px;line-height:1.35;text-align:left}
+.wxnow .d b{font-weight:900;display:block;font-size:15px;text-transform:uppercase;letter-spacing:.08em}
+.wxdays{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;width:100%;font-variant-numeric:tabular-nums}
+.wxdays div{background:rgba(255,255,255,.45);border-radius:14px;padding:6px 4px;text-align:center;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+body.night .wxdays div{background:rgba(255,255,255,.06)}
+.wxdays div b{display:block;font-size:14px;font-weight:900}
+.wxdays div b span{opacity:.75;font-weight:500}
+.icon{width:44px;height:44px;flex:none}
+.icon.sm{width:28px;height:28px;display:block;margin:2px auto}
+
+@media (orientation:landscape){
+  .main{grid-template-columns:1.5fr 1fr;align-items:center;justify-items:center;place-content:stretch}
+  .clock{font-size:clamp(64px,min(17vw,44vh),260px)}
+}
+
+.bottom{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
+/* radio tile */
+.radio{display:flex;align-items:center;gap:12px;background:var(--g-sun);color:var(--tile-fg);box-shadow:var(--shadow);border-radius:20px;padding:8px 14px 8px 8px;flex:1 1 320px;min-width:0;max-width:560px}
+.radio .play{width:46px;height:46px;border-radius:50%;background:var(--fg);color:var(--bg);display:grid;place-items:center;flex:none;position:relative}
+
+.radio .meta{min-width:0;flex:1;text-align:left}
+.radio .meta b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:900;text-transform:uppercase;letter-spacing:.06em;font-size:14px}
+.radio .meta span{opacity:.88;font-size:13px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.radio input[type=range]{width:90px;accent-color:var(--fg)}
+/* menu tiles */
+.nav{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;align-items:stretch}
+.nav button{display:flex;align-items:center;justify-content:center;gap:6px;padding:10px 14px;border-radius:16px;color:var(--tile-fg);font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;box-shadow:var(--shadow);transition:transform .15s}
+.nav button:active{transform:scale(.95)}
+.nav button svg{width:16px;height:16px}
+.nav .c-alarm{background:var(--g-alarm)}
+
+.nav .c-radio{background:var(--g-violet)}
+.nav .c-wx{background:var(--g-sky)}
+.nav .c-night{background:var(--g-night);color:var(--bg)}
+.nav .c-sleep{background:var(--g-mint)}
+.nav .c-icon{background:var(--panel);color:var(--fg);padding:10px 12px;justify-content:center;align-items:center;align-self:stretch}
+.nav .c-icon.on{background:var(--fg);color:var(--bg)}
+@media (orientation:landscape){
+  .nav{gap:5px}
+  .nav button{min-width:clamp(46px,6.4vw,70px);padding:7px 6px}
+  .nav .c-icon{min-width:42px;padding:7px 9px}
+  .radio{flex:1 1 230px}
+}
+@media (orientation:landscape) and (max-width:880px){ .radio input[type=range]{display:none} }
+
+.bars{display:flex;gap:3px;align-items:flex-end;height:16px}
+.bars i{width:3px;background:currentColor;border-radius:2px;height:30%}
+.playing .bars i{animation:bar .9s ease-in-out infinite alternate}
+.bars i:nth-child(2){animation-delay:.3s}.bars i:nth-child(3){animation-delay:.6s}
+@keyframes bar{to{height:100%}}
+
+/* ---- life: drifting color blobs, greeting, animated icons ---- */
+.blobs{position:fixed;inset:0;overflow:hidden;z-index:-1;pointer-events:none}
+.blobs i{position:absolute;width:55vmax;height:55vmax;border-radius:50%;filter:blur(60px);opacity:.28;animation:drift 28s ease-in-out infinite alternate}
+.blobs i:nth-child(1){background:var(--g4);top:-25vmax;left:-15vmax}
+.blobs i:nth-child(2){background:var(--g5);bottom:-30vmax;right:-10vmax;animation-duration:34s}
+.blobs i:nth-child(3){background:var(--g3);top:20%;left:40%;width:35vmax;height:35vmax;opacity:.16;animation-duration:40s}
+
+
+body.night .blobs i{opacity:.10}
+@keyframes drift{to{transform:translate(8vmax,6vmax) scale(1.15)}}
+body{isolation:isolate}
+.hello{display:flex;align-items:baseline;gap:10px}
+.hello b{font-size:clamp(16px,min(4.2vw,5.5vh),22px);text-transform:none;letter-spacing:-.01em;color:var(--fg);font-weight:800}
+.a-spin{transform-origin:16px 16px;animation:spin 14s linear infinite}
+.a-float{animation:float 4s ease-in-out infinite}
+.a-drop{animation:drop 1.2s linear infinite}.d2{animation-delay:.4s}.d3{animation-delay:.8s}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes float{50%{transform:translateX(1.5px)}}
+@keyframes drop{0%{transform:translateY(-3px);opacity:0}30%{opacity:1}100%{transform:translateY(4px);opacity:0}}
+.radio .play{width:46px;height:46px;border-radius:50%;background:var(--fg);color:var(--bg);display:grid;place-items:center;flex:none;position:relative}
+.playing .play::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--fg);animation:ping 1.8s ease-out infinite}
+@keyframes ping{to{transform:scale(1.35);opacity:0}}
+.wx,.radio,.nav button,.alarmchip{transition:transform .2s}
+.wx:active,.radio:active{transform:scale(.985)}
+.wx,.radio{cursor:pointer}
+button,.wx,.radio{-webkit-tap-highlight-color:transparent}
+.nav button,.btn,.radio .play,.st,.switch,.days span,.del,.sheet h2 button{transition:transform .18s cubic-bezier(.3,1.6,.5,1),box-shadow .2s,background-color .2s}
+.nav button:active,.btn:active,.radio .play:active,.st:active,.del:active,.sheet h2 button:active{transform:scale(.92)}
+.days label:active span{transform:scale(.88)}
+.ripple-host{position:relative;overflow:hidden}
+.ripple{position:absolute;border-radius:50%;background:currentColor;opacity:.22;transform:scale(0);pointer-events:none;animation:ripple .5s ease-out forwards}
+@keyframes ripple{to{transform:scale(2.6);opacity:0}}
+.sheet:not([hidden]){animation:fadeIn .22s ease-out}
+.sheet:not([hidden]) .card{animation:popIn .28s cubic-bezier(.2,1.2,.4,1)}
+@keyframes fadeIn{from{opacity:0}}
+@keyframes popIn{from{opacity:0;transform:translateY(14px) scale(.97)}}
+.dim:not([hidden]){animation:fadeIn .5s ease}
+@media (prefers-reduced-motion:reduce){.ripple,.sheet:not([hidden]),.sheet:not([hidden]) .card,.dim:not([hidden]){animation:none}}
+@media (prefers-reduced-motion:reduce){.blobs i,.a-spin,.a-float,.a-drop,.playing .play::after{animation:none}}
+
+/* ---- landscape: two columns, one bottom bar ---- */
+@media (orientation:landscape){
+  .main{grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:clamp(12px,3vw,32px);align-items:stretch}
+  .clockwrap{align-content:center;justify-items:start;text-align:left;padding-left:clamp(0px,2vw,24px)}
+  .clock{font-size:clamp(64px,min(15vw,46vh),260px)}
+  .date{margin-left:.15em}
+  .wx{max-width:none;align-content:center;justify-items:stretch;height:100%;max-height:340px;align-self:center}
+  .wxnow{justify-content:center}
+  .bottom{flex-wrap:nowrap}
+  .radio{max-width:none;flex:1 1 180px}
+  .bottom{justify-content:center}
+  .bottom,.main,.top{min-width:0}
+  .nav{flex-wrap:nowrap;gap:6px}
+  .nav button{flex-direction:column;gap:2px;padding:7px 8px;min-width:clamp(52px,7.5vw,72px);font-size:11px;border-radius:14px}
+  .nav button svg{width:20px;height:20px}
+}
+@media (orientation:landscape) and (max-height:340px){
+  .wxdays div{padding:4px 2px}
+  .icon.sm{width:22px;height:22px}
+  .wxnow .icon{width:36px;height:36px}
+}
+
+/* panels: centered dialogs */
+.sheet{position:fixed;inset:0;background:rgba(24,32,46,.35);display:flex;align-items:center;justify-content:center;z-index:20;
+  padding:max(12px,env(safe-area-inset-top,0px)) max(12px,env(safe-area-inset-right,0px)) max(12px,env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px))}
+body.night .sheet{background:rgba(0,0,0,.6)}
+.sheet .card{background:var(--panel);width:min(760px,100%);max-height:100%;overflow:auto;border-radius:20px;padding:18px 20px;display:grid;gap:14px;box-shadow:0 20px 60px rgba(24,32,46,.25)}
+.sheet h2{margin:0;font-family:var(--f-clock);font-size:22px;font-weight:800;display:flex;justify-content:space-between;align-items:center}
+.sheet h2 button{font-family:var(--f-ui);color:var(--accent);font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:.1em}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.field{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 12px;color:var(--fg);font:inherit;min-width:0}
+input[type=time].field{font-family:var(--f-clock);font-size:24px;font-weight:800}
+.btn{background:var(--fg);color:var(--bg);border-radius:12px;padding:11px 16px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;font-size:13px}
+.btn.ghost{background:transparent;color:var(--fg);border:1px solid var(--line)}
+.btn.ghost.on{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.days{display:flex;gap:6px;flex-wrap:wrap}
+.days label{position:relative}
+.days input{position:absolute;opacity:0}
+.days span{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);color:var(--dim);font-size:13px;font-weight:500}
+.days input:checked+span{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.list{display:grid;gap:8px}
+.list.cols{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.item{display:flex;align-items:center;gap:12px;padding:12px;border-radius:14px;background:var(--bg);border:1px solid var(--line)}
+.item .t{font-family:var(--f-clock);font-size:28px;font-weight:300;font-variant-numeric:tabular-nums}
+.item .s{color:var(--dim);font-size:13px;flex:1;min-width:0}
+.item.off .t{color:var(--dim)}
+.switch{width:46px;height:28px;border-radius:14px;background:var(--line);position:relative;flex:none}
+.switch::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:var(--panel);box-shadow:0 1px 3px rgba(0,0,0,.2);transition:.2s}
+.switch.on{background:var(--accent)}.switch.on::after{left:21px}
+.del{color:var(--dim);font-size:20px;padding:4px 8px}
+.st{display:flex;align-items:center;gap:6px;border-radius:12px;background:var(--bg);border:1px solid var(--line)}
+.st.sel{border-color:var(--accent);background:var(--accent-soft)}
+.st .pick{display:block;text-align:left;padding:10px 12px;flex:1;min-width:0}
+.st b{font-weight:900;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.st.sel b{color:var(--accent)}
+.st span{color:var(--dim);font-size:12px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.note{color:var(--dim);font-size:13px;line-height:1.5;margin:0}
+.label{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);font-weight:900}
+.hours{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;font-variant-numeric:tabular-nums}
+.hours div{flex:none;text-align:center;font-size:12px;color:var(--dim);background:var(--bg);border-radius:10px;padding:8px 10px}
+.hours div b{display:block;color:var(--fg);font-size:15px}
+
+.ring{position:fixed;inset:0;background:var(--bg);z-index:40;display:grid;place-items:center;text-align:center;padding:24px;animation:pulse 2s ease-in-out infinite}
+.ring .big{font-family:var(--f-clock);font-size:clamp(72px,min(22vw,40vh),200px);color:var(--fg);font-weight:300;font-variant-numeric:lining-nums tabular-nums}
+.ring .acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.ring .acts .btn{font-size:20px;padding:18px 32px;border-radius:18px}
+@keyframes pulse{50%{background:var(--g2)}}
+body.night .ring{animation:none}
+
+.banner{position:fixed;left:50%;top:calc(10px + env(safe-area-inset-top,0px));transform:translateX(-50%);z-index:45;background:var(--fg);color:var(--bg);
+  padding:10px 18px;border-radius:999px;font-weight:800;font-size:13px;letter-spacing:.04em;box-shadow:var(--shadow);max-width:calc(100% - 32px);animation:nudge 2.4s ease-in-out infinite}
+@keyframes nudge{50%{transform:translate(-50%,3px)}}
+.install{background:var(--fg);color:var(--bg);padding:6px 12px;border-radius:999px;font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+.top{display:grid!important;grid-template-columns:1fr auto 1fr}
+.topleft{justify-self:start;min-width:0}
+.topright{justify-self:end}
+.hello{flex-direction:column;align-items:center;gap:0!important;text-align:center}
+@media (orientation:portrait){
+  .top{grid-template-columns:1fr;justify-items:center;gap:8px}
+  .hello{order:-1}
+  .topleft{justify-self:center}
+  .topright{display:none}
+}
+.dim{position:fixed;inset:0;z-index:35;background:#0a0706;display:grid;place-items:center;cursor:pointer}
+.dimbox{display:grid;justify-items:center;text-align:center;transition:transform 2s ease}
+.dim span{font-family:var(--f-clock);font-weight:300;font-size:clamp(40px,10vw,90px);color:#4a3226;letter-spacing:-.03em;font-variant-numeric:tabular-nums;display:block;text-align:center}
+.dim small{display:block;text-align:center;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#33231b;margin-top:6px;font-weight:700}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:10px 16px;border-radius:12px;z-index:60;font-size:14px;max-width:90%}
+@media (orientation:landscape){
+  .bottom{justify-content:center;gap:8px}
+  .radio{flex:0 1 300px;max-width:300px;padding:6px 12px 6px 6px;gap:10px;border-radius:16px}
+  .radio .play{width:38px;height:38px}
+  .radio .play svg{width:16px;height:16px}
+  .radio .meta b{font-size:12px}
+  .radio .meta span{font-size:11px}
+}
+
+/* ===== cafe look: pastel pink ground, cream cards, black outlines and ink ===== */
+:root{
+  --pink:#f2d3e3; --pink-2:#f8e4ee; --pink-3:#ebb3d0; --pink-ink:#c8508f;
+  --cream:#f6f2e4; --ink:#3d3b3e;
+  --bg:var(--pink); --panel:var(--cream); --line:var(--ink); --fg:var(--ink); --dim:#6e6669;
+  --accent:var(--pink-ink); --accent-soft:rgba(200,80,143,.12); --on-accent:#fff;
+  --tile-fg:var(--ink); --shadow:none;
+}
+body{background:var(--pink)}
+.blobs i{background:#fff!important;opacity:.38!important;filter:blur(30px)!important;border-radius:62% 38% 55% 45% / 50% 60% 40% 50%}
+.hello b,.date{color:var(--ink)}
+.clock{color:var(--ink)}
+.clock .colon,.clock .sec{color:var(--pink-ink)}
+.wx{background:var(--pink-2);color:var(--ink);border:2px solid var(--ink);border-radius:10px;box-shadow:none}
+.wxnow .d{opacity:1}
+.wxdays div{background:var(--cream);border:1.5px solid var(--ink);border-radius:6px;color:var(--ink)}
+.radio{background:var(--cream);color:var(--ink);border:2px solid var(--ink);border-radius:10px;box-shadow:0 3px 0 rgba(28,28,28,.18)}
+.radio .play{background:var(--ink);color:var(--cream);box-shadow:none}
+.playing .play::after{border-color:var(--pink-ink)}
+.bars i{background:var(--pink-ink)}
+.nav button{background:var(--cream)!important;color:var(--ink)!important;border:2px solid var(--ink);border-radius:10px;box-shadow:0 3px 0 rgba(28,28,28,.18)}
+.nav button:active{box-shadow:0 0 0 rgba(28,28,28,.18);transform:translateY(3px) scale(.96)}
+.nav .c-icon.on{background:var(--pink-3)!important}
+.sheet{background:rgba(28,28,28,.28)}
+.sheet .card{background:var(--cream);border:2px solid var(--ink);border-radius:12px;box-shadow:0 6px 0 rgba(28,28,28,.2)}
+.sheet h2 button{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.field{background:#fff;border:1.5px solid var(--ink);color:var(--ink)}
+.btn{background:var(--ink);color:var(--cream);border-radius:8px}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.btn.ghost.on{background:var(--pink-2);color:var(--ink);border-color:var(--ink)}
+.item,.st,.hours div{background:#fff;border:1.5px solid var(--ink);border-radius:8px}
+.st.sel{background:var(--pink-2);border-color:var(--ink)}
+.st.sel b{color:var(--ink)}
+.switch{background:#e4dccd;border:1.5px solid var(--ink)}
+.switch.on{background:var(--pink-ink)}
+.days span{border:1.5px solid var(--ink);color:var(--ink)}
+.days input:checked+span{background:var(--pink-3);border-color:var(--ink);color:var(--ink)}
+.label,.note{color:var(--dim)}
+.ring{background:var(--pink)}
+@keyframes pulse{50%{background:var(--pink-3)}}
+.ring .big{color:var(--ink)!important}
+.toast{background:var(--ink);color:var(--cream)}
+.dim{background:#0b0709}
+.dim span{color:#4a2a3a}
+.dim small{color:#33202a}
+
+/* ===== landscape: radio in the bottom-left corner ===== */
+@media (orientation:landscape){
+  /* bottom row uses the same two columns as clock + weather: radio sits centered under the clock */
+  .bottom{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:clamp(12px,3vw,32px);align-items:center}
+  .radio{margin:0;justify-self:center;width:100%;max-width:300px}
+  .nav{justify-self:center}
+}
+
+/* ===== enter and exit motion ===== */
+.sheet.closing{animation:fadeOut .22s ease-in forwards}
+.sheet.closing .card{animation:popOut .22s ease-in forwards}
+.dim:not([hidden]){animation:fadeIn .45s ease}
+.dim.closing{animation:fadeOut .22s ease-in forwards}
+.ring:not([hidden]) > div{animation:popIn .35s cubic-bezier(.2,1.2,.4,1)}
+.ring.closing{animation:fadeOut .22s ease-in forwards}
+@keyframes fadeOut{to{opacity:0}}
+@keyframes popOut{to{opacity:0;transform:translateY(12px) scale(.96)}}
+@media (prefers-reduced-motion:reduce){.sheet.closing,.sheet.closing .card,.dim.closing,.ring.closing,.ring:not([hidden]) > div{animation:none}}
+.awake-warn{position:fixed;left:50%;bottom:calc(10px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:44;background:var(--ink,#3d3b3e);color:var(--cream,#f6f2e4);padding:8px 14px;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;max-width:calc(100% - 32px);text-align:center}
+</style>
+</head>
+<body>
+
+<button class="banner" id="soundBanner" hidden>Dodirni bilo gde da uključiš zvuk alarma</button>
+
+<div class="blobs" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="app">
+  <div class="top">
+    <span class="topleft" aria-hidden="true"></span>
+    <span class="hello"><b id="greet">Dobro veče</b><span id="place">Beograd</span></span>
+    <span class="topright" aria-hidden="true"></span>
+  </div>
+
+  <div class="main" id="main">
+    <div class="clockwrap">
+      <div class="clock"><span id="hh">00</span><span class="colon">:</span><span id="mm">00</span><span class="sec" id="ss">00</span></div>
+      <div class="date" id="date"></div>
+    </div>
+    <div class="wx">
+      <div class="wxnow"><span id="wxIcon"></span><span class="t" id="wxT">--°</span><span class="d"><b id="wxDesc">Učitavam vreme</b><span id="wxSub"></span></span></div>
+      <div class="wxdays" id="wxDays"></div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="radio" id="radioBar">
+      <button class="play" id="playBtn" aria-label="Pusti radio"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" id="playIco"><path d="M7 4v16l13-8z"/></svg></button>
+      <div class="meta"><b id="stName">Naxi Radio</b><span id="stSub">Dodirni za puštanje</span></div>
+      <div class="bars"><i></i><i></i><i></i></div>
+      <input type="range" id="vol" min="0" max="1" step="0.05" value="0.7" aria-label="Jačina zvuka">
+    </div>
+    <div class="nav">
+      <button data-open="alarms" class="c-alarm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M5 3 2 6M19 3l3 3"/></svg><span>Alarmi</span></button>
+      <button data-open="radio" class="c-radio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="8" width="18" height="12" rx="3"/><path d="M7 8l10-5"/><circle cx="15" cy="14" r="2.5"/></svg><span>Stanice</span></button>
+      <button data-open="weather" class="c-wx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 18h10a4 4 0 0 0 0-8 6 6 0 0 0-11.5 1.5A3.5 3.5 0 0 0 7 18z"/></svg><span>Vreme</span></button>
+      <button id="dimBtn" class="c-icon" aria-label="Zatamni ekran" title="Zatamni ekran"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
+      <button id="fullBtn" class="c-icon" aria-label="Ceo ekran" title="Ceo ekran"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fullIco"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<div class="sheet" id="sh-alarms" hidden><div class="card">
+  <h2>Alarmi <button data-close>Gotovo</button></h2>
+  <div class="row"><input type="time" class="field" id="aTime" value="07:00"><input class="field" id="aLabel" placeholder="Naziv (npr. Posao)" style="flex:1"></div>
+  <div class="days" id="aDays"></div>
+  <div class="row"><span class="label">Budi me uz</span><select class="field" id="aStation" style="flex:1"></select></div>
+  <label class="note"><input type="checkbox" id="aFade" checked> Postepeno pojačavanje tokom 60 s</label>
+  <div class="row"><button class="btn" id="addAlarm">Dodaj alarm</button><button class="btn ghost" id="testAlarm">Probaj zvuk</button><span class="note">Ako stanica ne krene za 15 s, zvoni ton.</span></div>
+  <div class="list" id="alarmList"></div>
+</div></div>
+
+<div class="sheet" id="sh-radio" hidden><div class="card">
+  <h2>Stanice <button data-close>Gotovo</button></h2>
+  <div class="row">
+    <button class="btn ghost on" data-tab="rec">Preporuke</button>
+    <button class="btn ghost" data-tab="top">Najslušanije u Srbiji</button>
+    <button class="btn ghost" data-tab="fav">Omiljene</button>
+  </div>
+  <div class="row"><input class="field" id="rq" placeholder="Traži stanicu, npr. Karolina, jazz, BBC" style="flex:1"><button class="btn" id="rgo">Traži</button></div>
+  <div class="list cols" id="stList"></div>
+  <p class="note">Stanice dolaze iz besplatnog Radio Browser imenika. Dodirni ☆ da stanicu dodaš u omiljene.</p>
+</div></div>
+
+<div class="sheet" id="sh-weather" hidden><div class="card">
+  <h2>Vreme <button data-close>Gotovo</button></h2>
+  <div class="row"><input class="field" id="cityQ" placeholder="Grad, npr. Novi Sad" style="flex:1"><button class="btn" id="cityGo">Postavi grad</button><button class="btn ghost" id="geoBtn">Moja lokacija</button></div>
+  <div class="label">Narednih 24 sata</div>
+  <div class="hours" id="wxHours"></div>
+  <div class="label">Ove nedelje</div>
+  <div class="list cols" id="wxWeek"></div>
+  <p class="note" id="wxExtra"></p>
+</div></div>
+
+
+<div class="sheet" id="sh-awake" hidden><div class="card">
+  <h2>Ekran uvek upaljen <button data-close>Gotovo</button></h2>
+  <p class="note">Aplikacija traži od telefona da ekran ne gasi, ali neki telefoni to ipak prekinu. Najsigurnije je uključiti ovo u podešavanjima, jednom:</p>
+  <div class="list">
+    <div class="item"><span class="t">1</span><span class="s"><b style="color:var(--fg)">Podešavanja → O telefonu → Informacije o softveru</b><br>Dodirni <b style="color:var(--fg)">Broj verzije</b> (Build number) 7 puta dok ne piše da si programer.</span></div>
+    <div class="item"><span class="t">2</span><span class="s"><b style="color:var(--fg)">Podešavanja → Opcije za programere</b> (Developer options)<br>Uključi <b style="color:var(--fg)">Ostani budan</b> (Stay awake). Ekran se tada ne gasi dok je telefon na punjaču.</span></div>
+    <div class="item"><span class="t">3</span><span class="s"><b style="color:var(--fg)">Isključi uštedu baterije</b><br>Ušteda baterije može da prekine držanje ekrana upaljenim.</span></div>
+  </div>
+</div></div>
+
+<div class="dim" id="dim" hidden><div class="dimbox" id="dimBox"><span id="dimTime">00:00</span><small>Dodirni za buđenje ekrana</small></div></div>
+
+<div class="ring" id="ring" hidden>
+  <div>
+    <div class="big" id="ringTime"></div>
+    <div class="date" id="ringLabel">Dobro jutro</div>
+    <p class="note" id="ringWx" style="margin-top:8px"></p>
+    <div class="acts"><button class="btn ghost" id="snooze">Odloži 9 min</button><button class="btn" id="stopRing">Isključi</button></div>
+  </div>
+</div>
+
+<audio id="audio" preload="none" playsinline></audio>
+<video id="keepVid" muted playsinline loop aria-hidden="true" style="position:fixed;width:1px;height:1px;opacity:.01;left:0;bottom:0;pointer-events:none"><source src="data:video/webm;base64,GkXfo59ChoEBQveBAULygQRC84EIQoKEd2VibUKHgQJChYECGFOAZwEAAAAAAAIzEU2bdLpNu4tTq4QVSalmU6yBoU27i1OrhBZUrmtTrIHYTbuMU6uEElTDZ1OsggEeTbuMU6uEHFO7a1OsggId7AEAAAAAAABZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVSalmsirXsYMPQkBNgI1MYXZmNjAuMTYuMTAwV0GNTGF2ZjYwLjE2LjEwMESJiECvQAAAAAAAFlSua8GuAQAAAAAAADjXgQFzxYjCGD8g1azdTJyBACK1nIN1bmSIgQCGhVZfVlA4g4EBI+ODhDuaygDgibCBELqBEJqBAhJUw2f8c3OgY8CAZ8iaRaOHRU5DT0RFUkSHjUxhdmY2MC4xNi4xMDBzc9ZjwItjxYjCGD8g1azdTGfIoUWjh0VOQ09ERVJEh5RMYXZjNjAuMzEuMTAyIGxpYnZweGfIoUWjiERVUkFUSU9ORIeTMDA6MDA6MDQuMDAwMDAwMDAwAB9DtnX554EAo6OBAACAEAIAnQEqEAAQAABHCIWFiJmEiAICAAwNYAD+/6tQgKOZgQPoALEBAAEQEAAYADA/9AwAAAD+/6tQgKOZgQfQALEBAAEQEAAYADA/9AwAAAD+/6tQgKOZgQu4ALEBAAEQEAAYADA/9AwAAAD+/6tQgBxTu2uRu4+zgQC3iveBAfGCAZ/wgQM=" type="video/webm"><source src="data:video/mp4;base64,AAAAIGZ0eXBpc29tAAACAGlzb21pc28yYXZjMW1wNDEAAANfbW9vdgAAAGxtdmhkAAAAAAAAAAAAAAAAAAAD6AAAD6AAAQAAAQAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAol0cmFrAAAAXHRraGQAAAADAAAAAAAAAAAAAAABAAAAAAAAD6AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAABAAAAAABAAAAAQAAAAAAAkZWR0cwAAABxlbHN0AAAAAAAAAAEAAA+gAACAAAABAAAAAAIBbWRpYQAAACBtZGhkAAAAAAAAAAAAAAAAAABAAAABAABVxAAAAAAALWhkbHIAAAAAAAAAAHZpZGUAAAAAAAAAAAAAAABWaWRlb0hhbmRsZXIAAAABrG1pbmYAAAAUdm1oZAAAAAEAAAAAAAAAAAAAACRkaW5mAAAAHGRyZWYAAAAAAAAAAQAAAAx1cmwgAAAAAQAAAWxzdGJsAAAAvHN0c2QAAAAAAAAAAQAAAKxhdmMxAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAABAAEABIAAAASAAAAAAAAAABFUxhdmM2MC4zMS4xMDIgbGlieDI2NAAAAAAAAAAAAAAAGP//AAAAMmF2Y0MBZAAK/+EAF2dkAAqs2V7ARAAAAwAEAAADAAg8SJZYAQAEaO+Py/34+AAAAAAQcGFzcAAAAAEAAAABAAAAFGJ0cnQAAAAAAAAF1AAABdQAAAAYc3R0cwAAAAAAAAABAAAABAAAQAAAAAAUc3RzcwAAAAAAAAABAAAAAQAAAChjdHRzAAAAAAAAAAMAAAABAACAAAAAAAEAAQAAAAAAAgAAQAAAAAAcc3RzYwAAAAAAAAABAAAAAQAAAAQAAAABAAAAJHN0c3oAAAAAAAAAAAAAAAQAAALGAAAADAAAAAwAAAAMAAAAFHN0Y28AAAAAAAAAAQAAA48AAABidWR0YQAAAFptZXRhAAAAAAAAACFoZGxyAAAAAAAAAABtZGlyYXBwbAAAAAAAAAAAAAAAAC1pbHN0AAAAJal0b28AAAAdZGF0YQAAAAEAAAAATGF2ZjYwLjE2LjEwMAAAAAhmcmVlAAAC8m1kYXQAAAKsBgX//6jcRem95tlIt5Ys2CDZI+7veDI2NCAtIGNvcmUgMTY0IHIzMTA4IDMxZTE5ZjkgLSBILjI2NC9NUEVHLTQgQVZDIGNvZGVjIC0gQ29weWxlZnQgMjAwMy0yMDIzIC0gaHR0cDovL3d3dy52aWRlb2xhbi5vcmcveDI2NC5odG1sIC0gb3B0aW9uczogY2FiYWM9MSByZWY9MSBkZWJsb2NrPTE6MDowIGFuYWx5c2U9MHgzOjB4MTEzIG1lPWhleCBzdWJtZT0yIHBzeT0xIHBzeV9yZD0xLjAwOjAuMDAgbWl4ZWRfcmVmPTAgbWVfcmFuZ2U9MTYgY2hyb21hX21lPTEgdHJlbGxpcz0wIDh4OGRjdD0xIGNxbT0wIGRlYWR6b25lPTIxLDExIGZhc3RfcHNraXA9MSBjaHJvbWFfcXBfb2Zmc2V0PTAgdGhyZWFkcz0xIGxvb2thaGVhZF90aHJlYWRzPTEgc2xpY2VkX3RocmVhZHM9MCBucj0wIGRlY2ltYXRlPTEgaW50ZXJsYWNlZD0wIGJsdXJheV9jb21wYXQ9MCBjb25zdHJhaW5lZF9pbnRyYT0wIGJmcmFtZXM9MyBiX3B5cmFtaWQ9MiBiX2FkYXB0PTEgYl9iaWFzPTAgZGlyZWN0PTEgd2VpZ2h0Yj0xIG9wZW5fZ29wPTAgd2VpZ2h0cD0xIGtleWludD0yNTAga2V5aW50X21pbj0xIHNjZW5lY3V0PTQwIGludHJhX3JlZnJlc2g9MCByY19sb29rYWhlYWQ9MTAgcmM9Y3JmIG1idHJlZT0xIGNyZj0yMy4wIHFjb21wPTAuNjAgcXBtaW49MCBxcG1heD02OSBxcHN0ZXA9NCBpcF9yYXRpbz0xLjQwIGFxPTE6MS4wMACAAAAAEmWIhAAX/+z/wlX/2PZEor//8QAAAAhBmiMYgr/+8AAAAAhBnkFCCv+SgQAAAAgBnmJEFf+SgA==" type="video/mp4"></video>
+<div class="awake-warn" id="awakeWarn" hidden>Ekran može da se ugasi. Dodirni ovde za uputstvo.</div>
+
+<script>
+(() => {
+const $ = id => document.getElementById(id);
+const store = {
+  get(k, d){ try{ const v = localStorage.getItem('ns_'+k); return v ? JSON.parse(v) : d; }catch{ return d; } },
+  set(k, v){ try{ localStorage.setItem('ns_'+k, JSON.stringify(v)); }catch{} }
+};
+const toast = msg => { const t=document.createElement('div'); t.className='toast'; t.textContent=msg; document.body.appendChild(t); setTimeout(()=>t.remove(),2800); };
+const pad = n => String(n).padStart(2,'0');
+const DAYS=['Ned','Pon','Uto','Sre','Čet','Pet','Sub'];
+const DAY2=['Ne','Po','Ut','Sr','Če','Pe','Su'];
+const LOCALE='sr-Latn-RS';
+
+/* ---------- Clock ---------- */
+function tick(){
+  const d=new Date();
+  $('hh').textContent=pad(d.getHours()); $('mm').textContent=pad(d.getMinutes()); $('ss').textContent=pad(d.getSeconds());
+  let ds; try{ ds=d.toLocaleDateString(LOCALE,{weekday:'long',day:'numeric',month:'long'}); }catch{ ds=d.toDateString(); }
+  $('date').textContent=ds.charAt(0).toUpperCase()+ds.slice(1);
+  const h=d.getHours();
+  $('greet').textContent= h<5?'Laku noć':h<11?'Dobro jutro':h<18?'Dobar dan':h<22?'Dobro veče':'Laku noć';
+  document.body.dataset.part= h<6||h>=21?'night':h<11?'morning':h<18?'day':'evening';
+  checkAlarms(d);
+}
+
+/* ---------- Keep screen on ---------- */
+const NATIVE_APP=!!window.NocniSat;
+/* keep the screen on: wake lock, re-taken whenever the phone drops it, plus a silent looping video as backup */
+let wakeLock=null, awakeOk=false;
+async function keepAwake(){
+  if(document.visibilityState!=='visible') return;
+  if('wakeLock' in navigator && !wakeLock){
+    try{
+      wakeLock=await navigator.wakeLock.request('screen');
+      awakeOk=true;
+      wakeLock.addEventListener('release',()=>{ wakeLock=null; setTimeout(keepAwake,1000); });
+    }catch{ wakeLock=null; }
+  }
+  const v=document.getElementById('keepVid');
+  if(v && v.paused){ try{ await v.play(); awakeOk=true; }catch{} }
+  const w=document.getElementById('awakeWarn'); if(w) w.hidden=awakeOk||NATIVE_APP;
+}
+setInterval(keepAwake,20000);
+document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='visible') keepAwake(); });
+
+/* ---------- Radio ---------- */
+const audio=$('audio');
+// Serbian recommendations, resolved to live stream links through Radio Browser
+const REC=[
+  {q:'Naxi Radio',tag:'Pop i hitovi, Beograd'},
+  {q:'Play Radio',tag:'Pop, dance'},
+  {q:'TDI Radio',tag:'Domaći i strani hitovi'},
+  {q:'Radio S1',tag:'Domaća muzika'},
+  {q:'Hit FM',tag:'Hitovi'},
+  {q:'Radio Beograd 1',tag:'RTS, vesti i program'},
+  {q:'Radio Beograd 202',tag:'RTS, muzika i zabava'},
+  {q:'Radio Beograd 2',tag:'RTS, kultura i klasika'},
+  {q:'Karolina',tag:'Narodna muzika'},
+  {q:'Radio Laguna',tag:'Domaći hitovi'},
+  {q:'Naxi Chill',tag:'Opuštena muzika, za buđenje'},
+  {q:'Naxi Jazz',tag:'Džez'},
+  {q:'Lola',tag:'Hitovi'},
+  {q:'Lollipop',tag:'Pop i hitovi'},
+  {q:'Lolipop',tag:'Pop i hitovi'},
+  {q:'Studio B',tag:'Beograd, vesti i muzika'},
+  {q:'Radio Index',tag:'Pop i rok'},
+  {q:'Rock Radio',tag:'Rok'},
+  {q:'Radio Novosti',tag:'Domaća muzika'},
+  {q:'Red Radio',tag:'Pop i dance'},
+  {q:'AS FM',tag:'Hitovi'},
+  {q:'Radio JAT',tag:'Pop i rok'},
+  {q:'Nostalgija',tag:'Stari hitovi'},
+  {q:'Super FM',tag:'Hitovi'},
+];
+const FALLBACK={name:'Radio Paradise Mellow',tag:'Mirna muzika',url:'https://stream.radioparadise.com/mellow-128'};
+let recList=store.get('rec3',[]);
+let favs=store.get('favs',[]);
+let current=store.get('station',null);
+let playing=false;
+audio.volume=store.get('vol',0.7); $('vol').value=audio.volume;
+
+const RB='https://de1.api.radio-browser.info/json/stations/';
+const toSt = s => ({name:s.name.trim(),tag:[s.state||s.country,(s.tags||'').split(',').filter(Boolean).slice(0,2).join(', ')].filter(Boolean).join(' · '),url:s.url_resolved});
+const bestUrl = arr => arr.find(s=>s.url_resolved?.startsWith('https')) || (location.protocol==='https:'?null:arr.find(s=>s.url_resolved));
+
+async function resolveRecs(){
+  const out=[];
+  await Promise.all(REC.map(async (r,i)=>{
+    try{
+      const js=await (await fetch(RB+'search?name='+encodeURIComponent(r.q)+'&countrycode=RS&order=clickcount&reverse=true&hidebroken=true&limit=5')).json();
+      const s=bestUrl(js); if(s) out[i]={name:s.name.trim(),tag:r.tag,url:s.url_resolved};
+    }catch{}
+  }));
+  const seenU=new Set(); const list=out.filter(x=>x&&!seenU.has(x.url)&&seenU.add(x.url));
+  if(list.length){ recList=list; store.set('rec3',list); if(!current){ current=list[0]; store.set('station',current); setStationUI(); } if(tab==='rec') renderStations(recList); }
+}
+
+function setStationUI(){ const s=current||FALLBACK; $('stName').textContent=s.name; $('stSub').textContent=playing?'Uživo':(s.tag||'Dodirni za puštanje'); }
+function setPlayUI(){
+  $('radioBar').classList.toggle('playing',playing);
+  $('playIco').innerHTML = playing ? '<path d="M6 5h4v14H6zM14 5h4v14h-4z"/>' : '<path d="M7 4v16l13-8z"/>';
+  setStationUI();
+}
+async function play(st){
+  if(st){ current=st; store.set('station',st); }
+  audio.src=(current||FALLBACK).url;
+  try{ await audio.play(); playing=true; }catch{ playing=false; toast('Ova stanica trenutno ne radi. Probaj drugu.'); }
+  setPlayUI(); renderStations(lastList);
+}
+function stop(){ audio.pause(); audio.removeAttribute('src'); audio.load(); playing=false; setPlayUI(); clearTimeout(sleepT); sleepT=null; }
+$('playBtn').onclick=()=> playing?stop():play();
+$('vol').oninput=e=>{ audio.volume=+e.target.value; store.set('vol',audio.volume); };
+audio.addEventListener('error',()=>{ if(playing){ playing=false; setPlayUI(); toast('Veza sa stanicom je prekinuta.'); } });
+
+let sleepT=null;
+function fadeOut(){ const v=audio.volume; let i=0; const iv=setInterval(()=>{ i++; audio.volume=Math.max(0,v*(1-i/30)); if(i>=30){ clearInterval(iv); stop(); audio.volume=v; } },1000); }
+
+let lastList=[], tab='rec';
+const isFav = s => favs.some(f=>f.url===s.url);
+function renderStations(list){
+  lastList=list; const el=$('stList'); el.innerHTML='';
+  if(!list.length){ el.innerHTML='<p class="note">'+(tab==='fav'?'Još nema omiljenih. Dodirni ☆ pored stanice.':'Učitavam stanice… Proveri da li je Wi-Fi uključen.')+'</p>'; return; }
+  list.forEach(s=>{
+    const row=document.createElement('div'); row.className='st'+(current&&s.url===current.url?' sel':'');
+    const b=document.createElement('button'); b.className='pick'; b.innerHTML='<b></b><span></span>';
+    b.querySelector('b').textContent=s.name; b.querySelector('span').textContent=s.tag||'';
+    b.onclick=()=>play(s);
+    const star=document.createElement('button'); star.className='del'; star.textContent=isFav(s)?'★':'☆'; if(isFav(s)) star.style.color='var(--accent)';
+    star.setAttribute('aria-label','Omiljena');
+    star.onclick=()=>{ favs=isFav(s)?favs.filter(f=>f.url!==s.url):[...favs,s]; store.set('favs',favs); renderStations(tab==='fav'?favs:list); };
+    row.append(b,star); el.appendChild(row);
+  });
+}
+function setTab(t){ tab=t; document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('on',b.dataset.tab===t)); }
+async function rbSearch(path){
+  $('stList').innerHTML='<p class="note">Tražim…</p>';
+  try{ const js=await (await fetch(RB+path)).json(); renderStations(js.filter(s=>s.url_resolved&&(location.protocol!=='https:'||s.url_resolved.startsWith('https'))).slice(0,40).map(toSt)); }
+  catch{ $('stList').innerHTML='<p class="note">Imenik stanica nije dostupan. Proveri Wi-Fi.</p>'; }
+}
+document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{
+  setTab(b.dataset.tab);
+  if(tab==='rec') renderStations(recList);
+  if(tab==='fav') renderStations(favs);
+  if(tab==='top') rbSearch('bycountrycodeexact/RS?order=clickcount&reverse=true&hidebroken=true&limit=40');
+});
+$('rgo').onclick=()=>{ const q=$('rq').value.trim(); if(!q) return; setTab(''); rbSearch('search?name='+encodeURIComponent(q)+'&order=clickcount&reverse=true&hidebroken=true&limit=40'); };
+$('rq').onkeydown=e=>{ if(e.key==='Enter') $('rgo').click(); };
+
+/* ---------- Alarms ---------- */
+function stationOptions(){
+  const seen=new Set(), list=[];
+  [current,...recList,...favs,FALLBACK].forEach(s=>{ if(s&&!seen.has(s.url)){ seen.add(s.url); list.push(s); } });
+  return list;
+}
+function fillStationSelect(){
+  const sel=$('aStation'), keep=sel.value||(current||FALLBACK).url;
+  sel.innerHTML='';
+  stationOptions().forEach(s=>{ const o=document.createElement('option'); o.value=s.url; o.textContent=s.name; sel.appendChild(o); });
+  sel.value=keep; if(!sel.value&&sel.options.length) sel.selectedIndex=0;
+}
+const pickedStation=()=>{ const u=$('aStation').value; return stationOptions().find(s=>s.url===u)||current||FALLBACK; };
+let alarms=store.get('alarms',[{id:1,time:'07:00',label:'Buđenje',days:[1,2,3,4,5],on:true,fade:true}]);
+/* Android app: alarms are kept and fired by the phone itself, so they ring with the screen off */
+const NATIVE=!!window.NocniSat;
+let lastSavedAlarms='';
+if(NATIVE){ try{ const j=NocniSat.getAlarms(); if(j) alarms=JSON.parse(j); }catch{} }
+window.__nativeAlarmsChanged=()=>{ if(!NATIVE) return; try{ const j=NocniSat.getAlarms(); if(j){ alarms=JSON.parse(j); lastSavedAlarms=j; renderAlarms(); } }catch{} };
+const dayBox=$('aDays');
+[1,2,3,4,5,6,0].forEach(d=>dayBox.insertAdjacentHTML('beforeend',`<label><input type="checkbox" value="${d}" ${d>0&&d<6?'checked':''}><span>${DAY2[d]}</span></label>`));
+function daysText(a){
+  if(!a.days.length) return 'Jednom';
+  if(a.days.length===7) return 'Svaki dan';
+  const s=[...a.days].sort().join();
+  if(s==='1,2,3,4,5') return 'Radnim danima'; if(s==='0,6') return 'Vikendom';
+  return [1,2,3,4,5,6,0].filter(d=>a.days.includes(d)).map(d=>DAYS[d]).join(' ');
+}
+function nextFire(a,from=new Date()){
+  const [h,m]=a.time.split(':').map(Number);
+  for(let i=0;i<8;i++){ const d=new Date(from); d.setDate(d.getDate()+i); d.setHours(h,m,0,0);
+    if(d<=from) continue; if(!a.days.length||a.days.includes(d.getDay())) return d; }
+  return null;
+}
+let snoozeAt=null;
+function renderAlarms(){
+  store.set('alarms',alarms);
+  if(NATIVE){
+    const out=JSON.stringify(alarms.map(a=>Object.assign({},a,{station:a.station||{name:(current||FALLBACK).name,url:(current||FALLBACK).url}})));
+    if(out!==lastSavedAlarms){ lastSavedAlarms=out; try{ NocniSat.saveAlarms(out); }catch{} }
+  }
+  const el=$('alarmList'); el.innerHTML='';
+  alarms.sort((a,b)=>a.time.localeCompare(b.time)).forEach(a=>{
+    const it=document.createElement('div'); it.className='item'+(a.on?'':' off');
+    it.innerHTML=`<span class="t">${a.time}</span><span class="s"></span><button class="switch ${a.on?'on':''}" aria-label="Uključi ili isključi"></button><button class="del" aria-label="Obriši">×</button>`;
+    it.querySelector('.s').textContent=(a.label?a.label+' · ':'')+daysText(a)+' · 📻 '+((a.station||current||FALLBACK).name);
+    it.querySelector('.switch').onclick=()=>{ a.on=!a.on; renderAlarms(); };
+    it.querySelector('.del').onclick=()=>{ alarms=alarms.filter(x=>x!==a); renderAlarms(); };
+    el.appendChild(it);
+  });
+  if(!alarms.length) el.innerHTML='<p class="note">Nema alarma.</p>';
+}
+$('addAlarm').onclick=()=>{
+  const days=[...dayBox.querySelectorAll('input:checked')].map(i=>+i.value);
+  const st=pickedStation();
+  alarms.push({id:Date.now(),time:$('aTime').value||'07:00',label:$('aLabel').value.trim(),days,on:true,fade:$('aFade').checked,station:{name:st.name,url:st.url}});
+  $('aLabel').value=''; renderAlarms(); toast('Alarm dodat');
+};
+
+let lastMinute='', ringing=null, beepCtx=null, beepIv=null, fadeIv=null;
+function checkAlarms(d){
+  if(snoozeAt&&d>=snoozeAt){ snoozeAt=null; startRing({label:'Odloženi alarm',fade:false,station:lastRingStation}); }
+  const key=d.toDateString()+' '+d.getHours()+':'+d.getMinutes();
+  if(key===lastMinute) return; lastMinute=key; renderAlarms();
+  if(NATIVE) return;
+  const hm=pad(d.getHours())+':'+pad(d.getMinutes());
+  alarms.forEach(a=>{
+    if(!a.on||a.time!==hm) return;
+    if(a.days.length&&!a.days.includes(d.getDay())) return;
+    if(!a.days.length){ a.on=false; renderAlarms(); }
+    startRing(a);
+  });
+}
+function beep(){
+  try{
+    beepCtx=beepCtx||new (window.AudioContext||window.webkitAudioContext)();
+    const one=()=>[0,.25,.5].forEach(t=>{ const o=beepCtx.createOscillator(),g=beepCtx.createGain(); o.frequency.value=880; o.connect(g); g.connect(beepCtx.destination);
+      const s=beepCtx.currentTime+t; g.gain.setValueAtTime(0,s); g.gain.linearRampToValueAtTime(.4,s+.02); g.gain.linearRampToValueAtTime(0,s+.18); o.start(s); o.stop(s+.2); });
+    one(); beepIv=setInterval(one,1500);
+  }catch{}
+}
+let lastRingStation=null;
+async function startRing(a){
+  if(ringing) return; ringing=a;
+  const st=a.station||current||FALLBACK; lastRingStation=st;
+  const n=new Date(); $('ringTime').textContent=pad(n.getHours())+':'+pad(n.getMinutes());
+  $('ringLabel').textContent=(a.label||'Dobro jutro')+' · '+st.name; $('ringWx').textContent=wxLine;
+  hideDim(); $('ring').hidden=false; keepAwake();
+  const target=+$('vol').value||0.7;
+  audio.volume=a.fade?0.05:target; audio.src=st.url; current=st; store.set('station',st);
+  let ok=true; try{ await audio.play(); playing=true; setPlayUI(); }catch{ ok=false; }
+  if(!ok) beep(); else setTimeout(()=>{ if(ringing&&(audio.paused||audio.readyState<2)) beep(); },12000);
+  if(a.fade){ let i=0; fadeIv=setInterval(()=>{ i++; audio.volume=Math.min(target,.05+(target-.05)*i/60); if(i>=60) clearInterval(fadeIv); },1000); }
+}
+function endRing(){ ringing=null; animateOut($('ring')); clearInterval(beepIv); clearInterval(fadeIv); audio.volume=+$('vol').value; }
+$('testAlarm').onclick=()=>{ const st=pickedStation(); if(NATIVE){ animateOut($('sh-alarms')); try{ NocniSat.testAlarm(st.url,'Proba alarma',st.name); }catch{} return; } $('sh-alarms').hidden=true; startRing({label:'Proba alarma',fade:false,station:st}); };
+$('stopRing').onclick=()=>{ endRing(); renderAlarms(); };
+$('snooze').onclick=()=>{ endRing(); stop(); snoozeAt=new Date(Date.now()+9*60000); renderAlarms(); toast('Odloženo do '+pad(snoozeAt.getHours())+':'+pad(snoozeAt.getMinutes())); };
+
+/* ---------- Weather ---------- */
+const WMO={0:['Vedro','sun'],1:['Pretežno vedro','sun'],2:['Delimično oblačno','part'],3:['Oblačno','cloud'],45:['Magla','fog'],48:['Magla sa injem','fog'],
+ 51:['Slaba rosulja','rain'],53:['Rosulja','rain'],55:['Jaka rosulja','rain'],56:['Ledena rosulja','rain'],57:['Ledena rosulja','rain'],
+ 61:['Slaba kiša','rain'],63:['Kiša','rain'],65:['Jaka kiša','rain'],66:['Ledena kiša','rain'],67:['Ledena kiša','rain'],
+ 71:['Slab sneg','snow'],73:['Sneg','snow'],75:['Jak sneg','snow'],77:['Zrnast sneg','snow'],80:['Pljuskovi','rain'],81:['Pljuskovi','rain'],82:['Jaki pljuskovi','rain'],
+ 85:['Snežni pljuskovi','snow'],86:['Snežni pljuskovi','snow'],95:['Grmljavina','storm'],96:['Grmljavina sa gradom','storm'],99:['Grmljavina sa gradom','storm']};
+function icon(kind,night,sm){
+  const sun=night?'<path class="a-float" d="M15 4a7 7 0 1 0 6 10 8 8 0 0 1-6-10z" fill="#3d3b3e"/>':'<circle cx="16" cy="16" r="6" fill="#3d3b3e"/><g class="a-spin" stroke="#3d3b3e" stroke-width="2" stroke-linecap="round"><path d="M16 3v3M16 26v3M3 16h3M26 16h3M6.8 6.8l2.1 2.1M23.1 23.1l2.1 2.1M6.8 25.2l2.1-2.1M23.1 8.9l2.1-2.1"/></g>';
+  const cl='<path class="a-float" d="M10 30h20a6 6 0 0 0 0-12 9 9 0 0 0-17-2 7 7 0 0 0-3 14z" fill="#ffffff" stroke="#3d3b3e" stroke-width="1.6"/>';
+  const k={sun,part:'<g transform="translate(-2,-4)">'+sun+'</g>'+cl,cloud:cl,
+    fog:cl+'<g stroke="#3d3b3e" stroke-width="2" stroke-linecap="round"><path d="M8 35h28M12 40h22"/></g>',
+    rain:cl+'<g stroke="#3d3b3e" stroke-width="2.4" stroke-linecap="round"><path class="a-drop" d="M14 34l-2 5"/><path class="a-drop d2" d="M21 34l-2 5"/><path class="a-drop d3" d="M28 34l-2 5"/></g>',
+    snow:cl+'<g fill="#3d3b3e"><circle class="a-drop" cx="14" cy="36" r="2"/><circle class="a-drop d2" cx="22" cy="38" r="2"/><circle class="a-drop d3" cx="30" cy="36" r="2"/></g>',
+    storm:cl+'<path d="M22 30l-4 7h5l-3 7 8-10h-5l3-4z" fill="#3d3b3e"/>'}[kind]||cl;
+  return `<svg class="icon${sm?' sm':''}" viewBox="0 0 44 44" aria-hidden="true">${k}</svg>`;
+}
+let loc=store.get('loc',{name:'Beograd',lat:44.8176,lon:20.4633});
+let wxLine='';
+async function loadWx(){
+  $('place').textContent=loc.name;
+  try{
+    const w=await (await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${loc.lat}&longitude=${loc.lon}&current=temperature_2m,apparent_temperature,weather_code,is_day,wind_speed_10m,relative_humidity_2m&hourly=temperature_2m,weather_code,precipitation_probability,is_day&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,sunrise,sunset&timezone=auto&forecast_days=7`)).json();
+    const c=w.current, dl=w.daily, [desc,kind]=WMO[c.weather_code]||['—','cloud'];
+    const R=Math.round, rain=i=>dl.precipitation_probability_max[i]??0;
+    $('wxIcon').innerHTML=icon(kind,!c.is_day);
+    $('wxT').textContent=R(c.temperature_2m)+'°';
+    $('wxDesc').textContent=desc;
+    $('wxSub').textContent=`Oseća se ${R(c.apparent_temperature)}° · max ${R(dl.temperature_2m_max[0])}° min ${R(dl.temperature_2m_min[0])}° · kiša ${rain(0)}%`;
+    wxLine=`${R(c.temperature_2m)}°, ${desc.toLowerCase()} · ${loc.name}. Danas do ${R(dl.temperature_2m_max[0])}°, šansa za kišu ${rain(0)}%.`;
+    $('wxDays').innerHTML=[1,2,3,4].map(i=>{ const d=new Date(dl.time[i]+'T12:00'), k=(WMO[dl.weather_code[i]]||['','cloud'])[1];
+      return `<div>${DAYS[d.getDay()]}${icon(k,false,true)}<b>${R(dl.temperature_2m_max[i])}° <span style="color:var(--dim);font-weight:400">${R(dl.temperature_2m_min[i])}°</span></b></div>`; }).join('');
+    const h=w.hourly, now=Date.now(); let out='';
+    for(let i=0,n=0;i<h.time.length&&n<24;i++){ const t=new Date(h.time[i]); if(t.getTime()<now-3600000) continue; n++;
+      out+=`<div>${pad(t.getHours())}h${icon((WMO[h.weather_code[i]]||['','cloud'])[1],!h.is_day[i],true)}<b>${R(h.temperature_2m[i])}°</b>${h.precipitation_probability[i]??0}%</div>`; }
+    $('wxHours').innerHTML=out;
+    $('wxWeek').innerHTML=dl.time.map((t,i)=>{ const d=new Date(t+'T12:00'), [ds,k]=WMO[dl.weather_code[i]]||['—','cloud'];
+      let name='Danas'; if(i){ try{ name=d.toLocaleDateString(LOCALE,{weekday:'long'}); }catch{ name=DAYS[d.getDay()]; } }
+      return `<div class="item">${icon(k)}<span class="s"><b style="color:var(--fg);font-weight:600;text-transform:capitalize">${name}</b><br>${ds} · kiša ${rain(i)}%</span><span class="t" style="font-size:20px">${R(dl.temperature_2m_max[i])}° <span style="color:var(--dim)">${R(dl.temperature_2m_min[i])}°</span></span></div>`; }).join('');
+    $('wxExtra').textContent=`Izlazak sunca ${dl.sunrise[0].slice(11)} · zalazak ${dl.sunset[0].slice(11)} · vetar ${R(c.wind_speed_10m)} km/h · vlažnost ${c.relative_humidity_2m}%. Podaci: Open-Meteo, osvežava se na 15 minuta.`;
+  }catch{ $('wxDesc').textContent='Vreme nije dostupno'; $('wxSub').textContent='Pokušaću ponovo za nekoliko minuta'; }
+}
+$('cityGo').onclick=async()=>{
+  const q=$('cityQ').value.trim(); if(!q) return;
+  try{ const r=await (await fetch('https://geocoding-api.open-meteo.com/v1/search?count=1&language=sr&name='+encodeURIComponent(q))).json();
+    if(!r.results?.length){ toast('Grad nije pronađen'); return; }
+    const p=r.results[0]; loc={name:p.name,lat:p.latitude,lon:p.longitude}; store.set('loc',loc); loadWx(); toast('Grad postavljen: '+p.name);
+  }catch{ toast('Nema interneta'); }
+};
+$('cityQ').onkeydown=e=>{ if(e.key==='Enter') $('cityGo').click(); };
+$('geoBtn').onclick=()=>{
+  if(!navigator.geolocation){ toast('Lokacija nije dostupna. Upiši grad.'); return; }
+  navigator.geolocation.getCurrentPosition(p=>{ loc={name:'Moja lokacija',lat:p.coords.latitude,lon:p.coords.longitude}; store.set('loc',loc); loadWx(); },
+    ()=>toast('Lokacija je blokirana. Upiši grad.'),{timeout:10000});
+};
+
+/* ---------- Panels, night mode, start ---------- */
+function openSheet(n){
+  document.querySelectorAll('.sheet').forEach(s=>s.hidden=true); $('sh-'+n).hidden=false;
+  if(n==='radio'){ setTab('rec'); renderStations(recList); }
+  if(n==='alarms') fillStationSelect();
+}
+document.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>openSheet(b.dataset.open));
+function animateOut(el,done){
+  if(!el||el.hidden){ done&&done(); return; }
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){ el.hidden=true; done&&done(); return; }
+  el.classList.add('closing');
+  setTimeout(()=>{ el.classList.remove('closing'); el.hidden=true; done&&done(); },220);
+}
+document.querySelectorAll('.sheet').forEach(s=>s.addEventListener('click',e=>{ if(e.target===s||e.target.hasAttribute('data-close')) animateOut(s); }));
+
+/* ---------- Sound unlock without a Start screen ---------- */
+// Installed (home screen) apps on Android may play sound right away; otherwise the first tap anywhere unlocks it.
+const SILENT='data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=';
+let unlocked=false;
+async function unlock(){
+  if(unlocked) return true;
+  try{ beepCtx=beepCtx||new (window.AudioContext||window.webkitAudioContext)(); await beepCtx.resume(); }catch{}
+  try{
+    if(!playing){ audio.src=SILENT; await audio.play(); audio.pause(); audio.removeAttribute('src'); }
+    unlocked=true;
+  }catch(e){ unlocked = e && e.name==='AbortError'; }
+  $('soundBanner').hidden=unlocked;
+  return unlocked;
+}
+['pointerdown','keydown','touchstart'].forEach(ev=>document.addEventListener(ev,()=>{ unlock(); keepAwake(); },{capture:true,passive:true}));
+$('soundBanner').onclick=()=>unlock();
+unlock().then(ok=>{ if(!ok) $('soundBanner').hidden=false; });
+keepAwake();
+
+/* ---------- Install to home screen ---------- */
+let installEvt=null;
+window.addEventListener('beforeinstallprompt',e=>{ e.preventDefault(); installEvt=e; });
+window.addEventListener('appinstalled',()=>{ toast('Noćni sat je na početnom ekranu'); });
+/* dim screen: near-black, screen stays on so the alarm still works */
+let dimIv=null;
+function showDim(){ $('dim').hidden=false; const upd=()=>{ const n=new Date(); $('dimTime').textContent=pad(n.getHours())+':'+pad(n.getMinutes()); $('dimBox').style.transform=`translate(${(Math.random()-.5)*12}px,${(Math.random()-.5)*8}px)`; }; upd(); clearInterval(dimIv); dimIv=setInterval(upd,30000); keepAwake(); }
+function hideDim(){ clearInterval(dimIv); animateOut($('dim')); }
+$('dimBtn').onclick=e=>{ e.stopPropagation(); showDim(); };
+
+/* full screen in landscape: hides the browser's address bar and tabs */
+const fsEl=()=>document.fullscreenElement||document.webkitFullscreenElement;
+const isLandscape=()=>matchMedia('(orientation: landscape)').matches;
+let autoFull=store.get('autoFull',true);
+async function enterFull(){
+  if(fsEl()) return;
+  const el=document.documentElement;
+  try{ await (el.requestFullscreen?el.requestFullscreen({navigationUI:'hide'}):el.webkitRequestFullscreen?.()); }catch{}
+  try{ await screen.orientation?.lock?.('landscape'); }catch{}
+}
+async function exitFull(){ try{ await (document.exitFullscreen?document.exitFullscreen():document.webkitExitFullscreen?.()); }catch{} }
+const fullLabel=()=>{ $('fullBtn').classList.toggle('on',autoFull); $('fullBtn').setAttribute('aria-pressed',String(autoFull)); };
+$('fullBtn').onclick=async()=>{ autoFull=!autoFull; store.set('autoFull',autoFull); fullLabel(); if(autoFull) await enterFull(); else await exitFull(); };
+fullLabel();
+// browsers only allow full screen after a tap, so the first tap in landscape switches it on
+document.addEventListener('pointerup',e=>{ if(autoFull && isLandscape() && !fsEl() && !e.target.closest('#fullBtn')) enterFull(); },{passive:true});
+$('dim').onclick=hideDim;
+// when opened from the home screen, ask the phone to stay in landscape (works only where allowed)
+if(matchMedia('(display-mode: standalone)').matches){ try{ screen.orientation?.lock?.('landscape').catch(()=>{}); }catch{} }
+
+document.addEventListener('pointerdown',e=>{
+  const b=e.target.closest('.nav button,.btn,.st .pick');
+  if(!b||matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  b.classList.add('ripple-host');
+  const r=b.getBoundingClientRect(), d=Math.max(r.width,r.height);
+  const c=document.createElement('span'); c.className='ripple';
+  c.style.cssText=`width:${d}px;height:${d}px;left:${e.clientX-r.left-d/2}px;top:${e.clientY-r.top-d/2}px`;
+  b.appendChild(c); setTimeout(()=>c.remove(),520);
+},{passive:true});
+$('awakeWarn').onclick=()=>openSheet('awake');
+$('radioBar').addEventListener('click',e=>{ if(e.target.closest('#playBtn, input')) return; openSheet('radio'); });
+document.querySelector('.wx').addEventListener('click',()=>openSheet('weather'));
+if(NATIVE){
+  autoFull=false; $('fullBtn').hidden=true; $('geoBtn').hidden=true; $('awakeWarn').hidden=true;
+  const kv=$('keepVid'); if(kv){ kv.pause(); kv.remove(); }
+}
+setStationUI(); renderAlarms(); tick(); loadWx(); resolveRecs();
+setInterval(tick,1000); setInterval(loadWx,15*60*1000);
+})();
+</script>
+</body>
+</html>
