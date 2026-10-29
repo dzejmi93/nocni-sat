@@ -76,6 +76,15 @@ public final class AlarmStore {
         i.putExtra("label", a.optString("label", ""));
         i.putExtra("fade", a.optBoolean("fade", true));
         i.putExtra("id", a.optLong("id", 0));
+        JSONArray b = a.optJSONArray("backups");
+        StringBuilder sb = new StringBuilder();
+        if (b != null) {
+            for (int k = 0; k < b.length(); k++) {
+                String u = b.optString(k, "");
+                if (!u.isEmpty()) sb.append(u).append('\n');
+            }
+        }
+        i.putExtra("backups", sb.toString());
     }
 
     static void scheduleNext(Context c) {
@@ -125,6 +134,7 @@ public final class AlarmStore {
             i.putExtra("url", src.getStringExtra("url"));
             i.putExtra("station", src.getStringExtra("station"));
             i.putExtra("label", src.getStringExtra("label"));
+            i.putExtra("backups", src.getStringExtra("backups"));
         }
         i.putExtra("fade", false);
         i.putExtra("id", -1L);

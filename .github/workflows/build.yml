@@ -23,6 +23,9 @@ jobs:
         with:
           gradle-version: '8.9'
 
+      - name: Check Serbian stations and put the working ones in the app
+        run: python3 scripts/check_stations.py --inject app/src/main/assets/index.html
+
       - name: Build
         run: gradle assembleRelease --no-daemon --stacktrace
 

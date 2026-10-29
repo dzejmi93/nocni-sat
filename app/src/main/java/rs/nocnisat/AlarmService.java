@@ -149,40 +149,78 @@ public class AlarmService extends Service {
         } catch (Exception ignored) {}
     }
 
+    private final java.util.ArrayList<String> queue = new java.util.ArrayList<>();
+    private boolean fadeWanted;
+
     private void startPlayback(Intent src) {
         ensureAlarmVolume();
+        queue.clear();
         String url = src.getStringExtra("url");
-        boolean fade = src.getBooleanExtra("fade", true);
+        if (url != null && !url.isEmpty()) queue.add(url);
+        String backups = src.getStringExtra("backups");
+        if (backups != null) {
+            for (String u : backups.split("\n")) {
+                u = u.trim();
+                if (!u.isEmpty() && !queue.contains(u)) queue.add(u);
+            }
+        }
+        fadeWanted = src.getBooleanExtra("fade", true);
+        volume = fadeWanted ? 0.05f : 1f;
         streamStarted = false;
-        if (url == null || url.isEmpty()) {
+        tryNextStream();
+    }
+
+    /** Plays the next stream in line; when none is left, the alarm tone. */
+    private void tryNextStream() {
+        if (streamStarted || tone != null) return;
+        if (player != null) {
+            try {
+                player.release();
+            } catch (Exception ignored) {}
+            player = null;
+        }
+        if (queue.isEmpty()) {
             playTone();
             return;
         }
+        final String url = queue.remove(0);
+        final MediaPlayer mp0 = new MediaPlayer();
+        player = mp0;
         try {
-            player = new MediaPlayer();
-            player.setAudioAttributes(alarmAttrs());
-            player.setWakeMode(getApplicationContext(), PowerManager.PARTIAL_WAKE_LOCK);
-            player.setDataSource(url);
-            volume = fade ? 0.05f : 1f;
-            player.setOnPreparedListener(mp -> {
+            mp0.setAudioAttributes(alarmAttrs());
+            mp0.setWakeMode(getApplicationContext(), PowerManager.PARTIAL_WAKE_LOCK);
+            mp0.setDataSource(url);
+            mp0.setOnPreparedListener(mp -> {
+                if (mp != player) return;
                 streamStarted = true;
                 mp.setVolume(volume, volume);
                 mp.start();
-                if (fade) fadeIn();
+                if (fadeWanted) fadeIn();
             });
-            player.setOnErrorListener((mp, what, extra) -> {
-                playTone();
+            mp0.setOnErrorListener((mp, what, extra) -> {
+                if (mp == player) {
+                    if (streamStarted) {
+                        streamStarted = false;
+                        queue.add(0, url); // dropped mid-way: reconnect once, then move on
+                    }
+                    handler.post(this::tryNextStream);
+                }
                 return true;
             });
-            player.setOnCompletionListener(mp -> playTone());
-            player.prepareAsync();
+            mp0.setOnCompletionListener(mp -> {
+                if (mp == player) {
+                    streamStarted = false;
+                    handler.post(this::tryNextStream);
+                }
+            });
+            mp0.prepareAsync();
         } catch (Exception e) {
-            playTone();
+            handler.post(this::tryNextStream);
             return;
         }
         handler.postDelayed(() -> {
-            if (!streamStarted) playTone();
-        }, 15_000L);
+            if (player == mp0 && !streamStarted) tryNextStream();
+        }, 12_000L);
     }
 
     private void fadeIn() {

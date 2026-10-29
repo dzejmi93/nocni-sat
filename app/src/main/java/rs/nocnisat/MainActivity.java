@@ -28,6 +28,8 @@ import android.widget.Toast;
 /** Shows the clock page and lets it hand its alarms to the system. */
 public class MainActivity extends Activity {
     private WebView web;
+    private volatile boolean radioPlaying = false;
+    private boolean pausedWeb = false;
 
     private final BroadcastReceiver battery = new BroadcastReceiver() {
         @Override
@@ -48,6 +50,11 @@ public class MainActivity extends Activity {
         @JavascriptInterface
         public String getAlarms() {
             return AlarmStore.getJson(getApplicationContext());
+        }
+
+        @JavascriptInterface
+        public void setPlaying(boolean p) {
+            radioPlaying = p;
         }
 
         @JavascriptInterface
@@ -104,6 +111,11 @@ public class MainActivity extends Activity {
     protected void onResume() {
         super.onResume();
         immersive();
+        if (web != null && pausedWeb) {
+            web.onResume();
+            web.resumeTimers();
+            pausedWeb = false;
+        }
         registerReceiver(battery, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
         if (web != null) web.evaluateJavascript("window.__nativeAlarmsChanged&&window.__nativeAlarmsChanged()", null);
         firstRunStep();
@@ -114,6 +126,13 @@ public class MainActivity extends Activity {
         try {
             unregisterReceiver(battery);
         } catch (Exception ignored) {}
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        // the clock is not visible: stop its timers and drawing so it costs no battery
+        if (web != null && !radioPlaying) {
+            web.onPause();
+            web.pauseTimers();
+            pausedWeb = true;
+        }
         super.onPause();
     }
 

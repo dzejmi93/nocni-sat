@@ -320,6 +320,12 @@ body{background:var(--pink)}
 @keyframes popOut{to{opacity:0;transform:translateY(12px) scale(.96)}}
 @media (prefers-reduced-motion:reduce){.sheet.closing,.sheet.closing .card,.dim.closing,.ring.closing,.ring:not([hidden]) > div{animation:none}}
 .awake-warn{position:fixed;left:50%;bottom:calc(10px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:44;background:var(--ink,#3d3b3e);color:var(--cream,#f6f2e4);padding:8px 14px;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;max-width:calc(100% - 32px);text-align:center}
+/* power saving in the app: no blur or endless motion, everything stops while the screen is dimmed or hidden */
+body.lowpower .blobs{display:none}
+body.lowpower{background:radial-gradient(120% 90% at 15% 0%,#fbe9f2 0%,var(--pink) 55%) fixed}
+body.lowpower .a-spin,body.lowpower .a-float,body.lowpower .a-drop{animation:none}
+body.lowpower .playing .play::after{animation-iteration-count:3}
+body.paused *,body.paused *::before,body.paused *::after{animation-play-state:paused!important}
 </style>
 </head>
 <body>
@@ -375,13 +381,12 @@ body{background:var(--pink)}
 <div class="sheet" id="sh-radio" hidden><div class="card">
   <h2>Stanice <button data-close>Gotovo</button></h2>
   <div class="row">
-    <button class="btn ghost on" data-tab="rec">Preporuke</button>
-    <button class="btn ghost" data-tab="top">Najslušanije u Srbiji</button>
+    <button class="btn ghost on" data-tab="rec">Sve srpske stanice</button>
     <button class="btn ghost" data-tab="fav">Omiljene</button>
   </div>
-  <div class="row"><input class="field" id="rq" placeholder="Traži stanicu, npr. Karolina, jazz, BBC" style="flex:1"><button class="btn" id="rgo">Traži</button></div>
+  <div class="row"><input class="field" id="rq" placeholder="Traži, npr. Naxi, TDI, Lola" style="flex:1"><button class="btn" id="rgo">Traži</button></div>
   <div class="list cols" id="stList"></div>
-  <p class="note">Stanice dolaze iz besplatnog Radio Browser imenika. Dodirni ☆ da stanicu dodaš u omiljene.</p>
+  <p class="note">Samo srpske stanice za koje je provereno da rade. Lista se sama osvežava jednom nedeljno. Dodirni ☆ da stanicu dodaš u omiljene.</p>
 </div></div>
 
 <div class="sheet" id="sh-weather" hidden><div class="card">
@@ -462,42 +467,21 @@ async function keepAwake(){
   if(v && v.paused){ try{ await v.play(); awakeOk=true; }catch{} }
   const w=document.getElementById('awakeWarn'); if(w) w.hidden=awakeOk||NATIVE_APP;
 }
-setInterval(keepAwake,20000);
+if(!window.NocniSat) setInterval(keepAwake,20000);
 document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='visible') keepAwake(); });
 
 /* ---------- Radio ---------- */
 const audio=$('audio');
 // Serbian recommendations, resolved to live stream links through Radio Browser
-const REC=[
-  {q:'Naxi Radio',tag:'Pop i hitovi, Beograd'},
-  {q:'Play Radio',tag:'Pop, dance'},
-  {q:'TDI Radio',tag:'Domaći i strani hitovi'},
-  {q:'Radio S1',tag:'Domaća muzika'},
-  {q:'Hit FM',tag:'Hitovi'},
-  {q:'Radio Beograd 1',tag:'RTS, vesti i program'},
-  {q:'Radio Beograd 202',tag:'RTS, muzika i zabava'},
-  {q:'Radio Beograd 2',tag:'RTS, kultura i klasika'},
-  {q:'Karolina',tag:'Narodna muzika'},
-  {q:'Radio Laguna',tag:'Domaći hitovi'},
-  {q:'Naxi Chill',tag:'Opuštena muzika, za buđenje'},
-  {q:'Naxi Jazz',tag:'Džez'},
-  {q:'Lola',tag:'Hitovi'},
-  {q:'Lollipop',tag:'Pop i hitovi'},
-  {q:'Lolipop',tag:'Pop i hitovi'},
-  {q:'Studio B',tag:'Beograd, vesti i muzika'},
-  {q:'Radio Index',tag:'Pop i rok'},
-  {q:'Rock Radio',tag:'Rok'},
-  {q:'Radio Novosti',tag:'Domaća muzika'},
-  {q:'Red Radio',tag:'Pop i dance'},
-  {q:'AS FM',tag:'Hitovi'},
-  {q:'Radio JAT',tag:'Pop i rok'},
-  {q:'Nostalgija',tag:'Stari hitovi'},
-  {q:'Super FM',tag:'Hitovi'},
-];
-const FALLBACK={name:'Radio Paradise Mellow',tag:'Mirna muzika',url:'https://stream.radioparadise.com/mellow-128'};
-let recList=store.get('rec3',[]);
-let favs=store.get('favs',[]);
+/* Serbian stations checked to play; filled in when the app is built, refreshed weekly from GitHub */
+const BUILTIN=/*STATIONS*/[];
+const LIST_URL='https://raw.githubusercontent.com/dzejmi93/nocni-sat/main/stations.json';
+let SERBIAN=(()=>{ const c=store.get('rs_list',null); return Array.isArray(c)&&c.length>=5?c:BUILTIN; })();
+let FALLBACK=SERBIAN[0]||{name:'Radio',tag:'Lista stanica se učitava',url:''};
+let recList=SERBIAN;
+let favs=store.get('favs',[]).filter(f=>SERBIAN.length===0||SERBIAN.some(x=>x.url===f.url));
 let current=store.get('station',null);
+const inList=st=>st&&SERBIAN.some(x=>x.url===st.url);
 let playing=false;
 audio.volume=store.get('vol',0.7); $('vol').value=audio.volume;
 
@@ -505,16 +489,23 @@ const RB='https://de1.api.radio-browser.info/json/stations/';
 const toSt = s => ({name:s.name.trim(),tag:[s.state||s.country,(s.tags||'').split(',').filter(Boolean).slice(0,2).join(', ')].filter(Boolean).join(' · '),url:s.url_resolved});
 const bestUrl = arr => arr.find(s=>s.url_resolved?.startsWith('https')) || (location.protocol==='https:'?null:arr.find(s=>s.url_resolved));
 
+function useList(list){
+  SERBIAN=list; recList=list; FALLBACK=list[0]||FALLBACK;
+  if(!inList(current)){ current=list[0]||null; store.set('station',current); setStationUI(); }
+  favs=favs.filter(f=>list.some(x=>x.url===f.url)); store.set('favs',favs);
+  if(tab==='rec') renderStations(recList);
+}
 async function resolveRecs(){
-  const out=[];
-  await Promise.all(REC.map(async (r,i)=>{
-    try{
-      const js=await (await fetch(RB+'search?name='+encodeURIComponent(r.q)+'&countrycode=RS&order=clickcount&reverse=true&hidebroken=true&limit=5')).json();
-      const s=bestUrl(js); if(s) out[i]={name:s.name.trim(),tag:r.tag,url:s.url_resolved};
-    }catch{}
-  }));
-  const seenU=new Set(); const list=out.filter(x=>x&&!seenU.has(x.url)&&seenU.add(x.url));
-  if(list.length){ recList=list; store.set('rec3',list); if(!current){ current=list[0]; store.set('station',current); setStationUI(); } if(tab==='rec') renderStations(recList); }
+  if(!inList(current)){ current=SERBIAN[0]||null; store.set('station',current); }
+  const last=store.get('rs_time',0);
+  if(Date.now()-last<20*3600*1000 && store.get('rs_list',null)) return;
+  try{
+    const r=await fetch(LIST_URL+'?d='+new Date().toISOString().slice(0,10),{cache:'no-store'});
+    const js=await r.json();
+    if(Array.isArray(js)&&js.length>=5&&js.every(x=>x&&x.name&&x.url)){
+      store.set('rs_list',js); store.set('rs_time',Date.now()); useList(js);
+    }
+  }catch{}
 }
 
 function setStationUI(){ const s=current||FALLBACK; $('stName').textContent=s.name; $('stSub').textContent=playing?'Uživo':(s.tag||'Dodirni za puštanje'); }
@@ -532,7 +523,7 @@ async function play(st){
 function stop(){ audio.pause(); audio.removeAttribute('src'); audio.load(); playing=false; setPlayUI(); clearTimeout(sleepT); sleepT=null; }
 $('playBtn').onclick=()=> playing?stop():play();
 $('vol').oninput=e=>{ audio.volume=+e.target.value; store.set('vol',audio.volume); };
-audio.addEventListener('error',()=>{ if(playing){ playing=false; setPlayUI(); toast('Veza sa stanicom je prekinuta.'); } });
+audio.addEventListener('error',()=>{ if(playing){ playing=false; setPlayUI(); toast('Veza sa stanicom je prekinuta. Probaj drugu stanicu.'); } });
 
 let sleepT=null;
 function fadeOut(){ const v=audio.volume; let i=0; const iv=setInterval(()=>{ i++; audio.volume=Math.max(0,v*(1-i/30)); if(i>=30){ clearInterval(iv); stop(); audio.volume=v; } },1000); }
@@ -541,7 +532,7 @@ let lastList=[], tab='rec';
 const isFav = s => favs.some(f=>f.url===s.url);
 function renderStations(list){
   lastList=list; const el=$('stList'); el.innerHTML='';
-  if(!list.length){ el.innerHTML='<p class="note">'+(tab==='fav'?'Još nema omiljenih. Dodirni ☆ pored stanice.':'Učitavam stanice… Proveri da li je Wi-Fi uključen.')+'</p>'; return; }
+  if(!list.length){ el.innerHTML='<p class="note">'+(tab==='fav'?'Još nema omiljenih. Dodirni ☆ pored stanice.':(tab===''?'Nema stanice sa tim imenom.':'Učitavam stanice… Proveri da li je Wi-Fi uključen.'))+'</p>'; return; }
   list.forEach(s=>{
     const row=document.createElement('div'); row.className='st'+(current&&s.url===current.url?' sel':'');
     const b=document.createElement('button'); b.className='pick'; b.innerHTML='<b></b><span></span>';
@@ -563,15 +554,16 @@ document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{
   setTab(b.dataset.tab);
   if(tab==='rec') renderStations(recList);
   if(tab==='fav') renderStations(favs);
-  if(tab==='top') rbSearch('bycountrycodeexact/RS?order=clickcount&reverse=true&hidebroken=true&limit=40');
 });
-$('rgo').onclick=()=>{ const q=$('rq').value.trim(); if(!q) return; setTab(''); rbSearch('search?name='+encodeURIComponent(q)+'&order=clickcount&reverse=true&hidebroken=true&limit=40'); };
+const fold=t=>(t||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'dj');
+$('rgo').onclick=()=>{ const q=fold($('rq').value.trim()); setTab(q?'':'rec'); renderStations(q?SERBIAN.filter(x=>fold(x.name+' '+x.tag).includes(q)):SERBIAN); };
+$('rq').addEventListener('input',()=>$('rgo').click());
 $('rq').onkeydown=e=>{ if(e.key==='Enter') $('rgo').click(); };
 
 /* ---------- Alarms ---------- */
 function stationOptions(){
   const seen=new Set(), list=[];
-  [current,...recList,...favs,FALLBACK].forEach(s=>{ if(s&&!seen.has(s.url)){ seen.add(s.url); list.push(s); } });
+  [current,...favs,...SERBIAN].forEach(s=>{ if(s&&!seen.has(s.url)){ seen.add(s.url); list.push(s); } });
   return list;
 }
 function fillStationSelect(){
@@ -606,7 +598,8 @@ let snoozeAt=null;
 function renderAlarms(){
   store.set('alarms',alarms);
   if(NATIVE){
-    const out=JSON.stringify(alarms.map(a=>Object.assign({},a,{station:a.station||{name:(current||FALLBACK).name,url:(current||FALLBACK).url}})));
+    const out=JSON.stringify(alarms.map(a=>{ const st=a.station||{name:(current||FALLBACK).name,url:(current||FALLBACK).url};
+      return Object.assign({},a,{station:st,backups:SERBIAN.filter(x=>x.url!==st.url).slice(0,4).map(x=>x.url)}); }));
     if(out!==lastSavedAlarms){ lastSavedAlarms=out; try{ NocniSat.saveAlarms(out); }catch{} }
   }
   const el=$('alarmList'); el.innerHTML='';
@@ -762,8 +755,8 @@ window.addEventListener('beforeinstallprompt',e=>{ e.preventDefault(); installEv
 window.addEventListener('appinstalled',()=>{ toast('Noćni sat je na početnom ekranu'); });
 /* dim screen: near-black, screen stays on so the alarm still works */
 let dimIv=null;
-function showDim(){ $('dim').hidden=false; const upd=()=>{ const n=new Date(); $('dimTime').textContent=pad(n.getHours())+':'+pad(n.getMinutes()); $('dimBox').style.transform=`translate(${(Math.random()-.5)*12}px,${(Math.random()-.5)*8}px)`; }; upd(); clearInterval(dimIv); dimIv=setInterval(upd,30000); keepAwake(); }
-function hideDim(){ clearInterval(dimIv); animateOut($('dim')); }
+function showDim(){ document.body.classList.add('paused'); clearInterval(tickIv); $('dim').hidden=false; const upd=()=>{ const n=new Date(); $('dimTime').textContent=pad(n.getHours())+':'+pad(n.getMinutes()); $('dimBox').style.transform=`translate(${(Math.random()-.5)*12}px,${(Math.random()-.5)*8}px)`; }; upd(); clearInterval(dimIv); dimIv=setInterval(upd,30000); keepAwake(); }
+function hideDim(){ clearInterval(dimIv); document.body.classList.remove('paused'); startTick(); animateOut($('dim')); }
 $('dimBtn').onclick=e=>{ e.stopPropagation(); showDim(); };
 
 /* full screen in landscape: hides the browser's address bar and tabs */
@@ -802,8 +795,19 @@ if(NATIVE){
   autoFull=false; $('fullBtn').hidden=true; $('geoBtn').hidden=true; $('awakeWarn').hidden=true;
   const kv=$('keepVid'); if(kv){ kv.pause(); kv.remove(); }
 }
-setStationUI(); renderAlarms(); tick(); loadWx(); resolveRecs();
-setInterval(tick,1000); setInterval(loadWx,15*60*1000);
+setStationUI(); renderAlarms(); loadWx(); resolveRecs();
+let tickIv=null;
+function startTick(){ clearInterval(tickIv); tick(); tickIv=setInterval(tick,1000); }
+startTick(); setInterval(()=>{ if(!document.hidden) loadWx(); },15*60*1000);
+document.addEventListener('visibilitychange',()=>{
+  if(document.hidden){ clearInterval(tickIv); document.body.classList.add('paused'); }
+  else{ document.body.classList.remove('paused'); if($('dim').hidden) startTick(); }
+});
+if(NATIVE){
+  document.body.classList.add('lowpower');
+  const tellPlaying=()=>{ try{ NocniSat.setPlaying(!audio.paused); }catch{} };
+  ['play','pause','ended','emptied'].forEach(ev=>audio.addEventListener(ev,tellPlaying));
+}
 })();
 </script>
 </body>
