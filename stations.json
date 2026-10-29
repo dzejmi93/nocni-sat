@@ -1,0 +1,452 @@
+[
+ {
+  "name": "Naxi Radio",
+  "tag": "Pop i hitovi, Beograd",
+  "url": "http://naxi48.streaming.rs:9180/"
+ },
+ {
+  "name": "TDI Radio",
+  "tag": "Domaći i strani hitovi",
+  "url": "http://streaming.tdiradio.com:8000/tdiradio"
+ },
+ {
+  "name": "Play Radio Serbia",
+  "tag": "Pop, dance",
+  "url": "https://stream.playradio.rs:8443/play.mp3"
+ },
+ {
+  "name": "Radio S1",
+  "tag": "Domaća muzika",
+  "url": "https://stream.radios.rs:9000/;"
+ },
+ {
+  "name": "Hit FM Radio Beograd",
+  "tag": "Hitovi",
+  "url": "http://streaming.hitfm.rs:8000/hit"
+ },
+ {
+  "name": "Radio LOLA",
+  "tag": "Hitovi",
+  "url": "http://streaming.tdiradio.com/radiolola.mp3"
+ },
+ {
+  "name": "Lolipop",
+  "tag": "Pop i hitovi",
+  "url": "https://streaming.tdiradio.com/lollipop.mp3"
+ },
+ {
+  "name": "Radio Studio B",
+  "tag": "Beograd, vesti i muzika",
+  "url": "http://radio.studiob.rs:8004/"
+ },
+ {
+  "name": "Karolina",
+  "tag": "Narodna muzika",
+  "url": "http://streaming.karolina.rs:8000/karolina"
+ },
+ {
+  "name": "Rock Radio Belgrade (Рок Радио Београд)",
+  "tag": "Rok",
+  "url": "https://edge9.pink.rs/rockstream"
+ },
+ {
+  "name": "Radio Novosti Ex-Yu",
+  "tag": "Domaća muzika",
+  "url": "http://novosti.radiostreaming.rs/novosti2"
+ },
+ {
+  "name": "Red radio Beograd",
+  "tag": "Pop i dance",
+  "url": "https://stream.redradio.rs/sid=1"
+ },
+ {
+  "name": "RADIO AS FM",
+  "tag": "Hitovi",
+  "url": "https://asfmonair-masterasfm.radioca.st/stream"
+ },
+ {
+  "name": "Radio JAT",
+  "tag": "Pop i rok",
+  "url": "https://streaming.tdiradio.com/radiojat.mp3"
+ },
+ {
+  "name": "Radio Nostalgija",
+  "tag": "Stari hitovi",
+  "url": "http://nostalgie128.streaming.rs:9250/"
+ },
+ {
+  "name": "Super FM",
+  "tag": "Hitovi",
+  "url": "http://onair.superfm.rs/superfm.mp3"
+ },
+ {
+  "name": "Laguna",
+  "tag": "Domaći hitovi",
+  "url": "https://live.radiolaguna.rs/laguna"
+ },
+ {
+  "name": "Naxi Chillwave",
+  "tag": "Opuštena muzika",
+  "url": "https://naxidigital-chillwave128ssl.streaming.rs:8322/;stream.nsv"
+ },
+ {
+  "name": "Naxi Jazz Radio",
+  "tag": "Džez",
+  "url": "https://naxidigital-jazz128ssl.streaming.rs:8172/;stream.nsv"
+ },
+ {
+  "name": "OK radio",
+  "tag": "",
+  "url": "https://sslstream.okradio.net/;?type=http&nocache=8804"
+ },
+ {
+  "name": "Naxi ExYu Radio",
+  "tag": "",
+  "url": "https://naxidigital-exyu128ssl.streaming.rs:8242/;stream.nsv"
+ },
+ {
+  "name": "Radio Lola - Domaca",
+  "tag": "classical",
+  "url": "https://streaming.tdiradio.com/radiolola.mp3"
+ },
+ {
+  "name": "Cool Radio",
+  "tag": "Belgrade · folk",
+  "url": "http://176.9.30.66/cool64"
+ },
+ {
+  "name": "Radio S3 Južni",
+  "tag": "",
+  "url": "https://stream.radios.rs:9038/;*.mp3"
+ },
+ {
+  "name": "Nisville Radio",
+  "tag": "Niš · funk, jazz",
+  "url": "https://radio.nisville.com/listen/live/live"
+ },
+ {
+  "name": "Radio S Narodni",
+  "tag": "",
+  "url": "https://stream.radios.rs:9016/;*.mp3"
+ },
+ {
+  "name": "Cool Radio Serbia",
+  "tag": "hits, oldies",
+  "url": "http://live.coolradio.rs/cool320"
+ },
+ {
+  "name": "Pink Radio",
+  "tag": "",
+  "url": "https://edge9.pink.rs/pinkstream"
+ },
+ {
+  "name": "Radio S EX YU",
+  "tag": "bosnia, croatia",
+  "url": "https://stream.radios.rs:9042/stream"
+ },
+ {
+  "name": "Dharmar Goa",
+  "tag": "",
+  "url": "https://radio.mugadavanje.rs/listen/dharmar_goa/dharmar"
+ },
+ {
+  "name": "Naxi EXYU rock",
+  "tag": "exyu, rock",
+  "url": "http://naxidigital-exyurock48.streaming.rs:8405/"
+ },
+ {
+  "name": "Naxi Cafe Radio",
+  "tag": "",
+  "url": "https://naxidigital-cafe128ssl.streaming.rs:8022/;"
+ },
+ {
+  "name": "TDI BEZ REKLAMA",
+  "tag": "hits, oldies",
+  "url": "https://streaming.tdiradio.com/tdiradiobezreklama.mp3"
+ },
+ {
+  "name": "Naxi 90s",
+  "tag": "pop",
+  "url": "https://naxidigital-90s128ssl.streaming.rs:8282/;stream.nsv"
+ },
+ {
+  "name": "Psychedelic Travel Radio",
+  "tag": "forest psytrance, progressive psytrance",
+  "url": "https://e20.yesstreaming.net:6148/stream"
+ },
+ {
+  "name": "RADIO.D59B",
+  "tag": "Belgrade",
+  "url": "http://n05.radiojar.com/gn6dqzhf9mzuv"
+ },
+ {
+  "name": "Radio 34",
+  "tag": "",
+  "url": "http://stream.radio34.rs:8889/;*.mp3"
+ },
+ {
+  "name": "Dasko i Mladja",
+  "tag": "",
+  "url": "http://172.105.250.193:8000/stream"
+ },
+ {
+  "name": "Naxi 80-e Radio",
+  "tag": "",
+  "url": "https://naxidigital-80s128ssl.streaming.rs:8042/;"
+ },
+ {
+  "name": "Naxi House Radio",
+  "tag": "",
+  "url": "https://naxidigital-house128ssl.streaming.rs:8002/;"
+ },
+ {
+  "name": "Naxi Ex-Yu Rock Radio",
+  "tag": "",
+  "url": "http://naxidigital-exyurock128.streaming.rs:8400/"
+ },
+ {
+  "name": "naxi radio - cafe radio",
+  "tag": "cafe, chill",
+  "url": "http://naxidigital-cafe128.streaming.rs:8020/;stream.nsv"
+ },
+ {
+  "name": "Radio Morava",
+  "tag": "",
+  "url": "https://e3.radiomorava.rs/radio/8000/radiomorava128.mp3"
+ },
+ {
+  "name": "Naxi",
+  "tag": "naxi, pop",
+  "url": "https://naxi128ssl.streaming.rs:9152/"
+ },
+ {
+  "name": "Naxi Blues",
+  "tag": "rock",
+  "url": "https://naxidigital-blues128ssl.streaming.rs:8312/;stream.nsv"
+ },
+ {
+  "name": "Naxi Clubbing Radio",
+  "tag": "",
+  "url": "https://naxidigital-clubbing128ssl.streaming.rs:8092/;"
+ },
+ {
+  "name": "Naxi Boem Radio",
+  "tag": "",
+  "url": "https://naxidigital-boem128ssl.streaming.rs:8162/;"
+ },
+ {
+  "name": "Naxi Gold Radio",
+  "tag": "",
+  "url": "https://naxidigital-gold128ssl.streaming.rs:8062/;stream.nsv"
+ },
+ {
+  "name": "Radio S Južni",
+  "tag": "narodna",
+  "url": "https://stream.radios.rs:9038/stream"
+ },
+ {
+  "name": "Naxi Dance Radio",
+  "tag": "",
+  "url": "https://naxidigital-dance128ssl.streaming.rs:8112/;"
+ },
+ {
+  "name": "Radio S3 Trap And Rap",
+  "tag": "narodna - mix - rap - trap",
+  "url": "https://stream.radios.rs:9030/;"
+ },
+ {
+  "name": "021 caffe",
+  "tag": "",
+  "url": "https://centova.dukahosting.com/proxy/021kafe/stream"
+ },
+ {
+  "name": "Naxi Radio 016",
+  "tag": "",
+  "url": "https://naxiradio016-naxinacional.streaming.rs:8637/;.mp3?_=1"
+ },
+ {
+  "name": "Radio Karolina",
+  "tag": "",
+  "url": "https://streaming.karolina.rs/karolina.mp3"
+ },
+ {
+  "name": "Naxi Fresh Radio",
+  "tag": "",
+  "url": "https://naxidigital-fresh128ssl.streaming.rs:8212/;stream.nsv"
+ },
+ {
+  "name": "Radio S2",
+  "tag": "pop, zabavna",
+  "url": "https://stream.radios.rs:9002/;"
+ },
+ {
+  "name": "Radio Beseda",
+  "tag": "orthodox christian, orthodox church",
+  "url": "http://radio.eparhijabacka.info:8000/RadioBeseda"
+ },
+ {
+  "name": "TOP FM Belgrade - 106,8 MHz",
+  "tag": "Belgrade",
+  "url": "https://topfm64ssl.streaming.rs:9287/;stream.mp3"
+ },
+ {
+  "name": "Radio S3 Narodni",
+  "tag": "narodna",
+  "url": "https://stream.radios.rs:9016/;"
+ },
+ {
+  "name": "Naxi 70e",
+  "tag": "",
+  "url": "https://naxidigital-70s128ssl.streaming.rs:8042/;"
+ },
+ {
+  "name": "Naxi Classic Radio",
+  "tag": "",
+  "url": "https://naxidigital-classic128ssl.streaming.rs:8032/;"
+ },
+ {
+  "name": "Radio S3 Folk stars",
+  "tag": "narodna",
+  "url": "https://stream.radios.rs:9024/;"
+ },
+ {
+  "name": "Naxi Adore",
+  "tag": "international",
+  "url": "https://naxidigital-adore128ssl.streaming.rs:8332/;stream.nsv"
+ },
+ {
+  "name": "Naxi Fitness",
+  "tag": "electronic",
+  "url": "https://naxidigital-fitness128ssl.streaming.rs:8292/;stream.nsv"
+ },
+ {
+  "name": "Radio 021",
+  "tag": "",
+  "url": "https://radio.dukahosting.com/8006/stream"
+ },
+ {
+  "name": "Radio Subotica 104.4",
+  "tag": "folk music, pop music",
+  "url": "https://vojvodjanski.com/radiosubotica"
+ },
+ {
+  "name": "Radio Šumadinac",
+  "tag": "zabavna - narodna",
+  "url": "https://media.srb-streaming.com/stream/radio-sumadinac-uzivo"
+ },
+ {
+  "name": "Radio S Jazz",
+  "tag": "classic jazz, jazz",
+  "url": "https://stream.radios.rs:9076/stream"
+ },
+ {
+  "name": "Radio S Classic",
+  "tag": "60s, 70s",
+  "url": "https://stream.radios.rs:9074/stream"
+ },
+ {
+  "name": "Radio S Gym",
+  "tag": "domaca, edm",
+  "url": "https://stream.radios.rs:9068/stream"
+ },
+ {
+  "name": "Radio Futog",
+  "tag": "",
+  "url": "https://radio.dukahosting.com:7001/"
+ },
+ {
+  "name": "Radio Banja 2",
+  "tag": "pop - narodna - folk- uživo - starogradska",
+  "url": "https://stream.iradio.pro/proxy/radiobanja2?mp=/stream"
+ },
+ {
+  "name": "NAŠ MM Radio 97.8",
+  "tag": "folk, pop",
+  "url": "https://radio.dukahosting.com:7045/stream"
+ },
+ {
+  "name": "Nostalgie Radio Belgrade - 105,2 Mhz",
+  "tag": "",
+  "url": "https://nostalgie128ssl.streaming.rs:9252/;stream.mp3"
+ },
+ {
+  "name": "Kiss FM",
+  "tag": "zabavna - narodna - folk",
+  "url": "https://cast2.my-control-panel.com/proxy/kissdoog/stream"
+ },
+ {
+  "name": "Radio 996FM",
+  "tag": "classic rock, pop",
+  "url": "https://radio.en.rs/radio/8000/radio.mp3"
+ },
+ {
+  "name": "Pumpaj Radio",
+  "tag": "Serbia · cultural values, dignity",
+  "url": "https://stream.pumpaj.info/listen/pumpaj_radio/radio.mp3"
+ },
+ {
+  "name": "OK Prelo Radio",
+  "tag": "narodna - krajiška",
+  "url": "https://stream.okplus.rs/listen/prelo/radio.mp3"
+ },
+ {
+  "name": "Lotel2",
+  "tag": "narodna",
+  "url": "https://s1.skeletor.rs/lotel"
+ },
+ {
+  "name": "JAT Radio",
+  "tag": "pop",
+  "url": "https://streaming.radiojat.rs/radiojat.mp3"
+ },
+ {
+  "name": "OK Radio Prelo",
+  "tag": "",
+  "url": "http://live.okplus.rs:8050/;*.mp3"
+ },
+ {
+  "name": "Naxi Love Radio",
+  "tag": "",
+  "url": "https://naxidigital-love128ssl.streaming.rs:8102/;"
+ },
+ {
+  "name": "Original Fast Radio",
+  "tag": "Serbia · blues, country",
+  "url": "https://az-de-01.worldradiobeat.com/listen/originalfastradio/live"
+ },
+ {
+  "name": "Radio 31 Plus",
+  "tag": "narodna - folk",
+  "url": "https://cast4.asurahosting.com/proxy/dejan/stream"
+ },
+ {
+  "name": "Moj Radio",
+  "tag": "",
+  "url": "https://eu4.fastcast4u.com/proxy/svidakov?mp=/1"
+ },
+ {
+  "name": "Naxi Hype Radio",
+  "tag": "",
+  "url": "https://naxidigital-hype128ssl.streaming.rs:8272/;"
+ },
+ {
+  "name": "Play",
+  "tag": "Serbia",
+  "url": "http://stream.playradio.rs:8001/play.aac"
+ },
+ {
+  "name": "mr.chem fm",
+  "tag": "chillout, downtempo",
+  "url": "https://e20.yesstreaming.net:6217/stream"
+ },
+ {
+  "name": "Radio S Kids",
+  "tag": "kids",
+  "url": "https://stream.radios.rs:9022/stream"
+ },
+ {
+  "name": "Radio S 2000-te Folk",
+  "tag": "2000s folk, folk",
+  "url": "https://stream.radios.rs:9060/stream"
+ }
+]
