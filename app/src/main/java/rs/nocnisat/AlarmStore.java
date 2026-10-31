@@ -74,7 +74,9 @@ public final class AlarmStore {
         i.putExtra("url", st != null ? st.optString("url", "") : "");
         i.putExtra("station", st != null ? st.optString("name", "") : "");
         i.putExtra("label", a.optString("label", ""));
-        i.putExtra("fade", a.optBoolean("fade", true));
+        boolean fade = a.optBoolean("fade", true);
+        i.putExtra("fade", fade);
+        i.putExtra("fadeSec", a.has("fadeSec") ? a.optInt("fadeSec", 60) : (fade ? 60 : 0));
         i.putExtra("id", a.optLong("id", 0));
         JSONArray b = a.optJSONArray("backups");
         StringBuilder sb = new StringBuilder();
@@ -137,6 +139,7 @@ public final class AlarmStore {
             i.putExtra("backups", src.getStringExtra("backups"));
         }
         i.putExtra("fade", false);
+        i.putExtra("fadeSec", 0);
         i.putExtra("id", -1L);
         long when = System.currentTimeMillis() + minutes * 60_000L;
         setExact(c, am, when, PendingIntent.getBroadcast(c, RC_SNOOZE, i, piFlags()));

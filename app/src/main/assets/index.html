@@ -325,7 +325,8 @@ body.lowpower .blobs{display:none}
 body.lowpower{background:radial-gradient(120% 90% at 15% 0%,#fbe9f2 0%,var(--pink) 55%) fixed}
 body.lowpower .a-spin,body.lowpower .a-float,body.lowpower .a-drop{animation:none}
 body.lowpower .playing .play::after{animation-iteration-count:3}
-body.paused *,body.paused *::before,body.paused *::after{animation-play-state:paused!important}
+body.paused *:not(.dim):not(.dim *),body.paused *::before,body.paused *::after{animation-play-state:paused!important}
+.dimalarm{display:block;margin-top:10px;font-size:clamp(14px,3.6vw,20px);font-weight:600;letter-spacing:.04em;color:#6a4a5a;font-variant-numeric:tabular-nums}
 </style>
 </head>
 <body>
@@ -373,7 +374,13 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   <div class="row"><input type="time" class="field" id="aTime" value="07:00"><input class="field" id="aLabel" placeholder="Naziv (npr. Posao)" style="flex:1"></div>
   <div class="days" id="aDays"></div>
   <div class="row"><span class="label">Budi me uz</span><select class="field" id="aStation" style="flex:1"></select></div>
-  <label class="note"><input type="checkbox" id="aFade" checked> Postepeno pojačavanje tokom 60 s</label>
+  <div class="row"><span class="label">Radio se pojačava</span><select class="field" id="aFade" style="flex:1">
+    <option value="0">Odmah punom jačinom</option>
+    <option value="30">Postepeno, 30 sekundi</option>
+    <option value="60" selected>Postepeno, 1 minut</option>
+    <option value="180">Postepeno, 3 minuta</option>
+    <option value="300">Postepeno, 5 minuta</option>
+  </select></div>
   <div class="row"><button class="btn" id="addAlarm">Dodaj alarm</button><button class="btn ghost" id="testAlarm">Probaj zvuk</button><span class="note">Ako stanica ne krene za 15 s, zvoni ton.</span></div>
   <div class="list" id="alarmList"></div>
 </div></div>
@@ -410,7 +417,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   </div>
 </div></div>
 
-<div class="dim" id="dim" hidden><div class="dimbox" id="dimBox"><span id="dimTime">00:00</span><small>Dodirni za buđenje ekrana</small></div></div>
+<div class="dim" id="dim" hidden><div class="dimbox" id="dimBox"><span id="dimTime">00:00</span><b class="dimalarm" id="dimAlarm"></b><small>Dodirni za buđenje ekrana</small></div></div>
 
 <div class="ring" id="ring" hidden>
   <div>
@@ -588,6 +595,8 @@ function daysText(a){
   if(s==='1,2,3,4,5') return 'Radnim danima'; if(s==='0,6') return 'Vikendom';
   return [1,2,3,4,5,6,0].filter(d=>a.days.includes(d)).map(d=>DAYS[d]).join(' ');
 }
+const fadeSecOf=a=>a.fadeSec!=null?a.fadeSec:(a.fade?60:0);
+function fadeText(a){ const f=fadeSecOf(a); return f<=0?'odmah glasno':f<60?'pojačava '+f+' s':'pojačava '+(f/60)+' min'; }
 function nextFire(a,from=new Date()){
   const [h,m]=a.time.split(':').map(Number);
   for(let i=0;i<8;i++){ const d=new Date(from); d.setDate(d.getDate()+i); d.setHours(h,m,0,0);
@@ -606,7 +615,7 @@ function renderAlarms(){
   alarms.sort((a,b)=>a.time.localeCompare(b.time)).forEach(a=>{
     const it=document.createElement('div'); it.className='item'+(a.on?'':' off');
     it.innerHTML=`<span class="t">${a.time}</span><span class="s"></span><button class="switch ${a.on?'on':''}" aria-label="Uključi ili isključi"></button><button class="del" aria-label="Obriši">×</button>`;
-    it.querySelector('.s').textContent=(a.label?a.label+' · ':'')+daysText(a)+' · 📻 '+((a.station||current||FALLBACK).name);
+    it.querySelector('.s').textContent=(a.label?a.label+' · ':'')+daysText(a)+' · 📻 '+((a.station||current||FALLBACK).name)+' · '+fadeText(a);
     it.querySelector('.switch').onclick=()=>{ a.on=!a.on; renderAlarms(); };
     it.querySelector('.del').onclick=()=>{ alarms=alarms.filter(x=>x!==a); renderAlarms(); };
     el.appendChild(it);
@@ -616,7 +625,7 @@ function renderAlarms(){
 $('addAlarm').onclick=()=>{
   const days=[...dayBox.querySelectorAll('input:checked')].map(i=>+i.value);
   const st=pickedStation();
-  alarms.push({id:Date.now(),time:$('aTime').value||'07:00',label:$('aLabel').value.trim(),days,on:true,fade:$('aFade').checked,station:{name:st.name,url:st.url}});
+  alarms.push({id:Date.now(),time:$('aTime').value||'07:00',label:$('aLabel').value.trim(),days,on:true,fade:+$('aFade').value>0,fadeSec:+$('aFade').value,station:{name:st.name,url:st.url}});
   $('aLabel').value=''; renderAlarms(); toast('Alarm dodat');
 };
 
@@ -650,10 +659,10 @@ async function startRing(a){
   $('ringLabel').textContent=(a.label||'Dobro jutro')+' · '+st.name; $('ringWx').textContent=wxLine;
   hideDim(); $('ring').hidden=false; keepAwake();
   const target=+$('vol').value||0.7;
-  audio.volume=a.fade?0.05:target; audio.src=st.url; current=st; store.set('station',st);
+  const fs=fadeSecOf(a); audio.volume=fs>0?0.05:target; audio.src=st.url; current=st; store.set('station',st);
   let ok=true; try{ await audio.play(); playing=true; setPlayUI(); }catch{ ok=false; }
   if(!ok) beep(); else setTimeout(()=>{ if(ringing&&(audio.paused||audio.readyState<2)) beep(); },12000);
-  if(a.fade){ let i=0; fadeIv=setInterval(()=>{ i++; audio.volume=Math.min(target,.05+(target-.05)*i/60); if(i>=60) clearInterval(fadeIv); },1000); }
+  if(fs>0){ let i=0; fadeIv=setInterval(()=>{ i++; audio.volume=Math.min(target,.05+(target-.05)*i/fs); if(i>=fs) clearInterval(fadeIv); },1000); }
 }
 function endRing(){ ringing=null; animateOut($('ring')); clearInterval(beepIv); clearInterval(fadeIv); audio.volume=+$('vol').value; }
 $('testAlarm').onclick=()=>{ const st=pickedStation(); if(NATIVE){ animateOut($('sh-alarms')); try{ NocniSat.testAlarm(st.url,'Proba alarma',st.name); }catch{} return; } $('sh-alarms').hidden=true; startRing({label:'Proba alarma',fade:false,station:st}); };
@@ -755,7 +764,16 @@ window.addEventListener('beforeinstallprompt',e=>{ e.preventDefault(); installEv
 window.addEventListener('appinstalled',()=>{ toast('Noćni sat je na početnom ekranu'); });
 /* dim screen: near-black, screen stays on so the alarm still works */
 let dimIv=null;
-function showDim(){ document.body.classList.add('paused'); clearInterval(tickIv); $('dim').hidden=false; const upd=()=>{ const n=new Date(); $('dimTime').textContent=pad(n.getHours())+':'+pad(n.getMinutes()); $('dimBox').style.transform=`translate(${(Math.random()-.5)*12}px,${(Math.random()-.5)*8}px)`; }; upd(); clearInterval(dimIv); dimIv=setInterval(upd,30000); keepAwake(); }
+function nextAlarmText(now){
+  let best=null;
+  alarms.filter(a=>a.on).forEach(a=>{ const t=nextFire(a,now); if(t&&(!best||t<best)) best=t; });
+  if(typeof snoozeAt!=='undefined'&&snoozeAt&&(!best||snoozeAt<best)) best=snoozeAt;
+  if(!best) return 'Nema uključenih alarma';
+  const mins=Math.max(0,Math.round((best-now)/60000)), h=Math.floor(mins/60), m=mins%60;
+  const day=best.toDateString()===now.toDateString()?'':(new Date(now.getTime()+864e5).toDateString()===best.toDateString()?'sutra ':DAYS[best.getDay()].toLowerCase()+' ');
+  return 'Alarm '+day+pad(best.getHours())+':'+pad(best.getMinutes())+' · za '+(h?h+' h ':'')+m+' min';
+}
+function showDim(){ document.body.classList.add('paused'); clearInterval(tickIv); $('dim').hidden=false; const upd=()=>{ const n=new Date(); $('dimTime').textContent=pad(n.getHours())+':'+pad(n.getMinutes()); $('dimAlarm').textContent=nextAlarmText(n); $('dimBox').style.transform=`translate(${(Math.random()-.5)*12}px,${(Math.random()-.5)*8}px)`; }; upd(); clearInterval(dimIv); dimIv=setInterval(upd,30000); keepAwake(); }
 function hideDim(){ clearInterval(dimIv); document.body.classList.remove('paused'); startTick(); animateOut($('dim')); }
 $('dimBtn').onclick=e=>{ e.stopPropagation(); showDim(); };
 

@@ -151,6 +151,8 @@ public class AlarmService extends Service {
 
     private final java.util.ArrayList<String> queue = new java.util.ArrayList<>();
     private boolean fadeWanted;
+    private int fadeSec = 60;
+    private boolean fading;
 
     private void startPlayback(Intent src) {
         ensureAlarmVolume();
@@ -164,7 +166,9 @@ public class AlarmService extends Service {
                 if (!u.isEmpty() && !queue.contains(u)) queue.add(u);
             }
         }
-        fadeWanted = src.getBooleanExtra("fade", true);
+        fadeSec = src.getIntExtra("fadeSec", src.getBooleanExtra("fade", true) ? 60 : 0);
+        fadeWanted = fadeSec > 0;
+        fading = false;
         volume = fadeWanted ? 0.05f : 1f;
         streamStarted = false;
         tryNextStream();
@@ -223,16 +227,26 @@ public class AlarmService extends Service {
         }, 12_000L);
     }
 
+    /** Raises the radio from almost silent to full over the chosen number of seconds. */
     private void fadeIn() {
+        if (fading || volume >= 1f) {
+            return;
+        }
+        fading = true;
+        final float step = 0.95f / Math.max(1, fadeSec);
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (player == null) return;
-                volume = Math.min(1f, volume + 0.95f / 60f);
+                if (player == null) {
+                    fading = false;
+                    return;
+                }
+                volume = Math.min(1f, volume + step);
                 try {
                     player.setVolume(volume, volume);
                 } catch (Exception ignored) {}
                 if (volume < 1f) handler.postDelayed(this, 1000);
+                else fading = false;
             }
         }, 1000);
     }
